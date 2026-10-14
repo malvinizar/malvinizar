@@ -1,4 +1,5 @@
 import { Gamepad2, Sparkles, MapPin, Trophy, Shield, ExternalLink } from 'lucide-react';
+import { GAME_URL } from '../config/site';
 
 export default function Juego() {
   return (
@@ -45,7 +46,7 @@ export default function Juego() {
           </p>
 
           <a 
-            href="https://github.com/malvinizar/malvinizar" 
+            href={GAME_URL} 
             target="_blank" 
             rel="noopener noreferrer"
             className="btn btn-primary btn-lg"

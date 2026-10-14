@@ -10,6 +10,7 @@ import {
   Users,
   GraduationCap,
 } from 'lucide-react';
+import { GAME_URL } from '../config/site';
 
 export default function Home() {
   return (
@@ -35,10 +36,15 @@ export default function Home() {
                   Explorar la Historia
                   <ArrowRight size={18} />
                 </Link>
-                <Link to="/juego" className="btn btn-secondary btn-lg">
+                <a 
+                  href={GAME_URL} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="btn btn-secondary btn-lg"
+                >
                   <Gamepad2 size={18} />
                   Juego Educativo
-                </Link>
+                </a>
               </div>
             </div>
 
@@ -201,9 +207,14 @@ export default function Home() {
               <p className="card-text">
                 Una experiencia interactiva para aprender sobre Malvinas de forma dinámica.
               </p>
-              <Link to="/juego" className="btn btn-primary btn-sm">
+              <a 
+                href={GAME_URL} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="btn btn-primary btn-sm"
+              >
                 Jugar Ahora <ArrowRight size={16} />
-              </Link>
+              </a>
             </div>
           </div>
         </div>

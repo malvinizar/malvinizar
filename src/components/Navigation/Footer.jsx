@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Compass, ShieldCheck } from 'lucide-react';
+import { GAME_URL } from '../../config/site';
 
 export default function Footer() {
   return (
@@ -35,7 +36,11 @@ export default function Footer() {
               <li><Link to="/recursos">Recursos Educativos</Link></li>
               <li><Link to="/diario">Diario Histórico y Cartas</Link></li>
               <li><Link to="/archivo-audiovisual">Archivo Audiovisual</Link></li>
-              <li><Link to="/juego">Juego Interactivo</Link></li>
+              <li>
+                <a href={GAME_URL} target="_blank" rel="noopener noreferrer">
+                  Juego Interactivo
+                </a>
+              </li>
             </ul>
           </div>
 

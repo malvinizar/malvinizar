@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { Compass, Menu, X, BookOpen, Gamepad2, Award } from 'lucide-react';
+import { GAME_URL } from '../../config/site';
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -50,10 +51,15 @@ export default function Header() {
         </nav>
 
         {/* Header Action Button */}
-        <Link to="/juego" className="header-cta-btn">
+        <a 
+          href={GAME_URL} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="header-cta-btn"
+        >
           <Gamepad2 size={18} />
           <span>Juego Educativo</span>
-        </Link>
+        </a>
 
         {/* Mobile menu button */}
         <button 
@@ -92,10 +98,17 @@ export default function Header() {
         <NavLink to="/contacto" className="nav-link" onClick={closeMenu}>
           Contacto
         </NavLink>
-        <Link to="/juego" className="btn btn-primary btn-sm" onClick={closeMenu} style={{ marginTop: '12px' }}>
+        <a 
+          href={GAME_URL} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="btn btn-primary btn-sm" 
+          onClick={closeMenu} 
+          style={{ marginTop: '12px' }}
+        >
           <Gamepad2 size={16} />
           <span>Acceder al Juego</span>
-        </Link>
+        </a>
       </nav>
     </header>
   );
