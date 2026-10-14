@@ -1,4 +1,5 @@
-import { GraduationCap, Award, BookCheck, Users, Globe } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { GraduationCap, ArrowRight } from 'lucide-react';
 
 export default function Universidad() {
   return (
@@ -6,49 +7,38 @@ export default function Universidad() {
       <div className="container container-narrow">
         <div className="section-header">
           <span className="section-eyebrow">Institucional</span>
-          <h1 className="section-title">El Proyecto Universitario</h1>
+          <h1 className="section-title">¿Cómo nace MalvinizAR?</h1>
           <p className="section-subtitle">
-            Un puente entre la investigación académica, la extensión comunitaria y la escuela argentina.
+            Una iniciativa universitaria para acercar la historia de Malvinas a través de la memoria, la comunicación y herramientas digitales de aprendizaje.
           </p>
         </div>
 
         <div style={{ backgroundColor: 'var(--white)', padding: '36px', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border)', marginBottom: '32px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '20px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '24px' }}>
             <div className="card-icon" style={{ margin: 0 }}>
               <GraduationCap size={28} />
             </div>
             <div>
-              <h2 style={{ fontSize: '1.4rem', margin: 0 }}>Misión y Compromiso Soberano</h2>
-              <span style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>Cátedra Abierta de Malvinas y Atlántico Sur</span>
+              <h2 style={{ fontSize: '1.3rem', margin: 0 }}>Universidad Nacional de Pilar</h2>
+              <span style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>Carrera de Comunicación Digital</span>
             </div>
           </div>
 
-          <p style={{ lineHeight: 1.7, marginBottom: '16px' }}>
-            La plataforma <strong>MalvinizAR</strong> nace con la convicción de que la universidad pública debe cumplir un rol central en la preservación de la memoria colectiva, la desclasificación y análisis de fuentes históricas y la divulgación científica sobre nuestros archipiélagos y mares australes.
+          <p style={{ lineHeight: 1.8, marginBottom: '18px', color: 'var(--text-main)' }}>
+            Desde la Universidad Nacional de Pilar, estamos comprometidos con la preservación de la memoria histórica de Malvinas y con el desarrollo de nuevas formas de acercar su historia a la sociedad.
           </p>
-          <p style={{ lineHeight: 1.7 }}>
-            A través de un trabajo conjunto entre historiadores, educadores, veteranos de guerra y desarrolladores, el proyecto democratiza el acceso a testimonios auténticos y herramientas didácticas validadas para que docentes de cualquier rincón del país puedan abordar la temática con rigor, respeto y profundidad.
+          <p style={{ lineHeight: 1.8, marginBottom: '18px', color: 'var(--text-main)' }}>
+            <strong>MalvinizAR</strong> nace como una iniciativa de estudiantes de la carrera de Comunicación Digital, con el objetivo de crear un espacio digital educativo que reúna testimonios, materiales históricos y recursos interactivos.
+          </p>
+          <p style={{ lineHeight: 1.8, color: 'var(--text-main)' }}>
+            Buscamos promover una educación innovadora, que combine la tecnología, la comunicación y la memoria para generar nuevas experiencias de aprendizaje y acercar la historia de Malvinas a las nuevas generaciones, las escuelas y la comunidad.
           </p>
         </div>
 
-        <div className="grid-2">
-          <div className="card">
-            <h3 className="card-title">Objetivos Pedagógicos</h3>
-            <ul style={{ paddingLeft: '20px', lineHeight: 1.7, color: 'var(--text-muted)' }}>
-              <li>Promover el pensamiento crítico en torno al colonialismo en el siglo XXI.</li>
-              <li>Valorar el testimonio de los veteranos y enfermeras como fuente primaria insustituible.</li>
-              <li>Integrar el enfoque bicontinental y la riqueza ecológica del Mar Argentino.</li>
-            </ul>
-          </div>
-
-          <div className="card">
-            <h3 className="card-title">Equipo Interdisciplinario</h3>
-            <ul style={{ paddingLeft: '20px', lineHeight: 1.7, color: 'var(--text-muted)' }}>
-              <li><strong>Dirección del Proyecto:</strong> Cátedra de Historia Argentina Contemporánea.</li>
-              <li><strong>Asesoría Histórica:</strong> Archivo Oral de Veteranos de Guerra.</li>
-              <li><strong>Desarrollo Digital:</strong> Equipo de Extensión Universitaria en Tecnologías.</li>
-            </ul>
-          </div>
+        <div style={{ textAlign: 'center', marginTop: '16px' }}>
+          <Link to="/contacto" className="btn btn-primary">
+            Contactarse <ArrowRight size={16} />
+          </Link>
         </div>
       </div>
     </div>

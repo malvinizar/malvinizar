@@ -1,23 +1,17 @@
 import { Link } from 'react-router-dom';
-import { 
-  BookOpen, 
-  MessageSquare, 
-  FileText, 
-  Video, 
-  Gamepad2, 
-  ArrowRight, 
-  Award, 
-  Compass, 
-  MapPin, 
-  CheckCircle2, 
-  Quote 
+import {
+  BookOpen,
+  MessageSquare,
+  FileText,
+  Video,
+  Gamepad2,
+  ArrowRight,
+  Compass,
+  Users,
+  GraduationCap,
 } from 'lucide-react';
-import { testimoniosData } from '../data/testimoniosData';
-import { recursosData } from '../data/recursosData';
 
 export default function Home() {
-  const testimonioHero = testimoniosData[0];
-
   return (
     <div>
       {/* Hero Section */}
@@ -31,10 +25,10 @@ export default function Home() {
                 <span>Memoria, Historia y Soberanía</span>
               </div>
               <h1 className="hero-title">
-                Malvinas en <span className="highlight">Primera Persona</span>
+                MalvinizAR
               </h1>
               <p className="hero-lead">
-                Un espacio digital universitario dedicado a preservar la voz viva de los protagonistas, custodiar la memoria histórica y brindar herramientas pedagógicas de acceso abierto a escuelas de todo el país.
+                Un espacio digital creado por estudiantes de la Universidad Nacional de Pilar para preservar la memoria histórica de Malvinas, recuperar las voces de sus protagonistas y acercar recursos educativos a toda la comunidad.
               </p>
               <div className="hero-actions">
                 <Link to="/historia" className="btn btn-primary btn-lg">
@@ -46,40 +40,68 @@ export default function Home() {
                   Juego Educativo
                 </Link>
               </div>
-
-              {/* Estadísticas de impacto */}
-              <div className="hero-stats">
-                <div className="stat-item">
-                  <span className="stat-number">649</span>
-                  <span className="stat-label">Héroes Caídos</span>
-                </div>
-                <div className="stat-item">
-                  <span className="stat-number">74</span>
-                  <span className="stat-label">Días de Conflicto</span>
-                </div>
-                <div className="stat-item">
-                  <span className="stat-number">+190</span>
-                  <span className="stat-label">Años de Reclamo</span>
-                </div>
-              </div>
             </div>
 
-            {/* Testimonio destacado / Tarjeta visual */}
+            {/* Sección orientada al público */}
             <div>
               <div className="hero-visual-card">
-                <div className="quote-badge">
-                  <Quote size={36} />
-                </div>
-                <p className="hero-quote">
-                  "{testimonioHero.cita}"
+                <h2 style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--white)', marginBottom: '10px' }}>
+                  Un espacio para aprender y compartir
+                </h2>
+                <p style={{ fontSize: '0.97rem', color: '#D1D5DB', lineHeight: 1.6, marginBottom: '24px' }}>
+                  Conocé la historia de Malvinas a través de recursos, testimonios y contenidos interactivos.
                 </p>
-                <div>
-                  <div className="hero-quote-author">{testimonioHero.nombre}</div>
-                  <div className="hero-quote-role">{testimonioHero.rol} — {testimonioHero.unidad}</div>
+
+                {/* Bloque docentes */}
+                <div style={{
+                  backgroundColor: 'rgba(3, 170, 211, 0.12)',
+                  border: '1px solid rgba(149, 211, 228, 0.25)',
+                  borderRadius: 'var(--radius-md)',
+                  padding: '18px 20px',
+                  marginBottom: '14px',
+                  display: 'flex',
+                  gap: '14px',
+                  alignItems: 'flex-start',
+                }}>
+                  <div style={{ color: 'var(--primary-light)', flexShrink: 0, marginTop: '2px' }}>
+                    <GraduationCap size={22} />
+                  </div>
+                  <div>
+                    <div style={{ fontSize: '0.88rem', fontWeight: 700, color: 'var(--primary-light)', marginBottom: '4px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                      ¿Sos docente?
+                    </div>
+                    <p style={{ fontSize: '0.93rem', color: '#D1D5DB', lineHeight: 1.55, margin: 0 }}>
+                      Encontrá materiales y recursos educativos para trabajar la historia de Malvinas en el aula.
+                    </p>
+                  </div>
                 </div>
-                <div style={{ marginTop: '24px', paddingTop: '16px', borderTop: '1px solid rgba(255,255,255,0.1)' }}>
-                  <Link to="/testimonios" style={{ color: 'var(--primary-light)', fontSize: '0.9rem', display: 'inline-flex', alignItems: 'center', gap: '6px', fontWeight: 600 }}>
-                    Escuchar más testimonios <ArrowRight size={16} />
+
+                {/* Bloque comunidad */}
+                <div style={{
+                  backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                  borderRadius: 'var(--radius-md)',
+                  padding: '18px 20px',
+                  display: 'flex',
+                  gap: '14px',
+                  alignItems: 'flex-start',
+                }}>
+                  <div style={{ color: 'var(--primary-light)', flexShrink: 0, marginTop: '2px' }}>
+                    <Users size={22} />
+                  </div>
+                  <div>
+                    <div style={{ fontSize: '0.88rem', fontWeight: 700, color: 'var(--primary-light)', marginBottom: '4px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                      ¿Sos parte de la comunidad?
+                    </div>
+                    <p style={{ fontSize: '0.93rem', color: '#D1D5DB', lineHeight: 1.55, margin: 0 }}>
+                      Explorá historias, documentos y contenidos audiovisuales para conocer más sobre Malvinas y mantener viva su memoria.
+                    </p>
+                  </div>
+                </div>
+
+                <div style={{ marginTop: '20px', paddingTop: '16px', borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+                  <Link to="/recursos" style={{ color: 'var(--primary-light)', fontSize: '0.9rem', display: 'inline-flex', alignItems: 'center', gap: '6px', fontWeight: 600 }}>
+                    Ver todos los recursos <ArrowRight size={16} />
                   </Link>
                 </div>
               </div>
@@ -88,96 +110,96 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Pilares del Proyecto */}
+      {/* Exploración de contenidos */}
       <section className="section">
         <div className="container">
           <div className="section-header">
-            <span className="section-eyebrow">Áreas de Exploración</span>
-            <h2 className="section-title">Ejes Fundamentales de la Plataforma</h2>
+            <span className="section-eyebrow">Contenidos</span>
+            <h2 className="section-title">Explorá MalvinizAR</h2>
             <p className="section-subtitle">
-              Navegá los diferentes módulos diseñados para estudiantes, docentes, investigadores y la comunidad en general.
+              Conocé las distintas secciones de la plataforma y encontrá contenidos para aprender, investigar y descubrir la historia de Malvinas.
             </p>
           </div>
 
           <div className="grid-3">
-            {/* Tarjeta 1: Historia */}
+            {/* Historia */}
             <div className="card">
               <div className="card-icon">
                 <BookOpen size={26} />
               </div>
               <h3 className="card-title">Historia y Memoria</h3>
               <p className="card-text">
-                Línea de tiempo detallada, desde la usurpación colonial de 1833 y los antecedentes diplomáticos, hasta el conflicto de 1982 y los desafíos contemporáneos.
+                Línea de tiempo y contenidos para conocer los principales acontecimientos y antecedentes históricos vinculados a Malvinas.
               </p>
               <Link to="/historia" className="btn btn-outline btn-sm">
                 Ver Cronología <ArrowRight size={16} />
               </Link>
             </div>
 
-            {/* Tarjeta 2: Testimonios */}
+            {/* Testimonios */}
             <div className="card">
               <div className="card-icon">
                 <MessageSquare size={26} />
               </div>
               <h3 className="card-title">Voces en Primera Persona</h3>
               <p className="card-text">
-                Relatos orales y escritos de soldados conscriptos, oficiales, personal de sanidad naval y familias, reconstruyendo la experiencia humana de la guerra.
+                Entrevistas grabadas por estudiantes de la Universidad Nacional de Pilar a excombatientes, para conocer sus experiencias y preservar sus testimonios.
               </p>
               <Link to="/testimonios" className="btn btn-outline btn-sm">
-                Leer Testimonios <ArrowRight size={16} />
+                Escuchar Testimonios <ArrowRight size={16} />
               </Link>
             </div>
 
-            {/* Tarjeta 3: Recursos Pedagógicos */}
+            {/* Recursos Pedagógicos */}
             <div className="card">
               <div className="card-icon">
                 <FileText size={26} />
               </div>
               <h3 className="card-title">Recursos Educativos</h3>
               <p className="card-text">
-                Guías para el aula, secuencias didácticas adaptadas para niveles primario, secundario y universitario, con mapas y actividades imprimibles.
+                Materiales y propuestas para trabajar la historia de Malvinas en el aula.
               </p>
               <Link to="/recursos" className="btn btn-outline btn-sm">
                 Biblioteca Docente <ArrowRight size={16} />
               </Link>
             </div>
 
-            {/* Tarjeta 4: Diario de Campaña */}
+            {/* Diario */}
             <div className="card">
               <div className="card-icon">
                 <Compass size={26} />
               </div>
               <h3 className="card-title">Diario Histórico y Cartas</h3>
               <p className="card-text">
-                Documentos epistolares, fragmentos de diarios íntimos de combate y correspondencia que cruzó el mar entre el continente y las islas.
+                Documentos, cartas y escritos vinculados con la historia y las experiencias de quienes vivieron el conflicto.
               </p>
               <Link to="/diario" className="btn btn-outline btn-sm">
                 Consultar Cartas <ArrowRight size={16} />
               </Link>
             </div>
 
-            {/* Tarjeta 5: Archivo Audiovisual */}
+            {/* Archivo Audiovisual */}
             <div className="card">
               <div className="card-icon">
                 <Video size={26} />
               </div>
               <h3 className="card-title">Archivo Audiovisual</h3>
               <p className="card-text">
-                Entrevistas en video, documentales temáticos y materiales multimedia sobre la geografía insular y los testimonios de los protagonistas.
+                Un espacio con recursos audiovisuales y materiales complementarios para explorar y aprender sobre Malvinas.
               </p>
               <Link to="/archivo-audiovisual" className="btn btn-outline btn-sm">
                 Ver Videos <ArrowRight size={16} />
               </Link>
             </div>
 
-            {/* Tarjeta 6: Juego Educativo */}
+            {/* Juego Educativo */}
             <div className="card" style={{ border: '2px solid var(--primary-light)' }}>
               <div className="card-icon" style={{ backgroundColor: 'var(--primary)', color: 'var(--white)' }}>
                 <Gamepad2 size={26} />
               </div>
-              <h3 className="card-title">Experiencia Interactiva</h3>
+              <h3 className="card-title">Juego Interactivo</h3>
               <p className="card-text">
-                Una propuesta lúdica y formativa para recorrer los acontecimientos históricos y aprender sobre la fauna, geografía y soberanía nacional.
+                Una experiencia interactiva para aprender sobre Malvinas de forma dinámica.
               </p>
               <Link to="/juego" className="btn btn-primary btn-sm">
                 Jugar Ahora <ArrowRight size={16} />
@@ -187,22 +209,22 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Banner de Llamado a la Comunidad / Proyecto Universitario */}
+      {/* Banner Universitario */}
       <section className="section section-dark">
         <div className="container" style={{ textAlign: 'center', maxWidth: '800px' }}>
-          <span className="badge badge-primary" style={{ marginBottom: '16px' }}>Extensión y Docencia</span>
+          <span className="badge badge-primary" style={{ marginBottom: '16px' }}>Universidad Nacional de Pilar</span>
           <h2 className="section-title" style={{ color: 'var(--white)', marginBottom: '18px' }}>
-            Compromiso Académico con la Causa Malvinas
+            ¿Cómo nace MalvinizAR?
           </h2>
-          <p style={{ color: '#D1D5DB', fontSize: '1.1rem', lineHeight: 1.6, marginBottom: '32px' }}>
-            Este proyecto surge de la articulación de docentes, investigadores y estudiantes universitarios junto a centros de veteranos de guerra de todo el territorio nacional para garantizar que la memoria siga viva en cada escuela.
+          <p style={{ color: '#D1D5DB', fontSize: '1.05rem', lineHeight: 1.7, marginBottom: '32px' }}>
+            MalvinizAR nace como una iniciativa de estudiantes de la carrera de Comunicación Digital, con el objetivo de crear un espacio digital educativo que reúna testimonios, materiales históricos y recursos interactivos para acercar la historia de Malvinas a las nuevas generaciones.
           </p>
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link to="/universidad" className="btn btn-primary">
-              Conocer el Proyecto Universitario
+              Conocer el Proyecto
             </Link>
             <Link to="/contacto" className="btn btn-secondary">
-              Aportar Material o Contactarse
+              Contactarse
             </Link>
           </div>
         </div>
