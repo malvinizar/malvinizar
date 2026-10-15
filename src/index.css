@@ -1261,3 +1261,68 @@ h1, h2, h3, h4, h5, h6 {
     display: inline-flex;
   }
 }
+
+/* =========================================================
+   MalvinizAR - Portada centrada
+   ========================================================= */
+
+.hero-centrado {
+  padding: 120px 0 112px;
+}
+
+.hero-columna {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.hero-centrado .hero-tag {
+  margin-bottom: 28px;
+  letter-spacing: 0.12em;
+}
+
+.hero-centrado .hero-title {
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 28px;
+}
+
+.hero-centrado .hero-lead {
+  font-size: clamp(1.15rem, 2.4vw, 1.5rem);
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--white);
+  max-width: 34ch;
+  margin: 0 auto 20px;
+  text-wrap: balance;
+}
+
+.hero-secundario {
+  font-size: clamp(0.98rem, 1.6vw, 1.08rem);
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--primary-light);
+  max-width: 54ch;
+  margin: 0 auto;
+  text-wrap: balance;
+}
+
+@media (max-width: 768px) {
+  .hero-centrado {
+    padding: 80px 0 72px;
+  }
+  .hero-centrado .hero-tag {
+    margin-bottom: 22px;
+    font-size: 0.72rem;
+  }
+  .hero-centrado .hero-title {
+    margin-bottom: 22px;
+  }
+}
