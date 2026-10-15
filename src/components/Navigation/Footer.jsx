@@ -32,15 +32,8 @@ export default function Footer() {
             <ul className="footer-links">
               <li><Link to="/">Inicio</Link></li>
               <li><Link to="/historia">Historia y Memoria</Link></li>
-              <li><Link to="/testimonios">Voces en Primera Persona</Link></li>
+              <li><Link to="/museo-virtual">Museo Virtual</Link></li>
               <li><Link to="/recursos">Recursos Educativos</Link></li>
-              <li><Link to="/diario">Diario Histórico y Cartas</Link></li>
-              <li><Link to="/archivo-audiovisual">Archivo Audiovisual</Link></li>
-              <li>
-                <a href={GAME_URL} target="_blank" rel="noopener noreferrer">
-                  Juego Interactivo
-                </a>
-              </li>
             </ul>
           </div>
 
@@ -48,8 +41,12 @@ export default function Footer() {
           <div className="footer-col">
             <h4>Proyecto</h4>
             <ul className="footer-links">
-              <li><Link to="/universidad">¿Cómo nace MalvinizAR?</Link></li>
-              <li><Link to="/contacto">Contacto</Link></li>
+              <li><Link to="/nosotros">Nosotros</Link></li>
+              <li>
+                <a href={GAME_URL} target="_blank" rel="noopener noreferrer">
+                  Juego Educativo
+                </a>
+              </li>
             </ul>
           </div>
 

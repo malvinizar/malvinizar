@@ -1,13 +1,22 @@
 import { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import { Compass, Menu, X, BookOpen, Gamepad2, Award } from 'lucide-react';
+import { Compass, Menu, X, Gamepad2 } from 'lucide-react';
 import { GAME_URL } from '../../config/site';
+
+const NAV_ITEMS = [
+  { to: '/', label: 'Inicio', end: true },
+  { to: '/historia', label: 'Historia', mobileLabel: 'Historia y Memoria' },
+  { to: '/museo-virtual', label: 'Museo Virtual' },
+  { to: '/recursos', label: 'Recursos', mobileLabel: 'Recursos Pedagógicos' },
+  { to: '/nosotros', label: 'Nosotros' },
+];
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
   const closeMenu = () => setMenuOpen(false);
+  const linkClass = ({ isActive }) => `nav-link ${isActive ? 'active' : ''}`;
 
   return (
     <header className="site-header">
@@ -24,90 +33,64 @@ export default function Header() {
 
         {/* Desktop Navigation */}
         <nav className="desktop-nav" aria-label="Navegación principal">
-          <NavLink to="/" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
-            Inicio
-          </NavLink>
-          <NavLink to="/historia" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
-            Historia
-          </NavLink>
-          <NavLink to="/testimonios" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
-            Testimonios
-          </NavLink>
-          <NavLink to="/recursos" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
-            Recursos
-          </NavLink>
-          <NavLink to="/diario" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
-            Diario
-          </NavLink>
-          <NavLink to="/archivo-audiovisual" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
-            Audiovisual
-          </NavLink>
-          <NavLink to="/universidad" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
-            Universidad
-          </NavLink>
-          <NavLink to="/contacto" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
-            Contacto
-          </NavLink>
+          {NAV_ITEMS.map((item) => (
+            <NavLink key={item.to} to={item.to} end={item.end} className={linkClass}>
+              {item.label}
+            </NavLink>
+          ))}
         </nav>
 
         {/* Header Action Button */}
-        <a 
-          href={GAME_URL} 
-          target="_blank" 
-          rel="noopener noreferrer" 
+        <a
+          href={GAME_URL}
+          target="_blank"
+          rel="noopener noreferrer"
           className="header-cta-btn"
         >
           <Gamepad2 size={18} />
           <span>Juego Educativo</span>
         </a>
 
-        {/* Mobile menu button */}
-        <button 
-          className="mobile-toggle-btn"
-          onClick={toggleMenu}
-          aria-label={menuOpen ? "Cerrar menú de navegación" : "Abrir menú de navegación"}
-          aria-expanded={menuOpen}
-        >
-          {menuOpen ? <X size={26} /> : <Menu size={26} />}
-        </button>
+        {/* Mobile actions: juego siempre visible + menú */}
+        <div className="header-actions-mobile">
+          <a
+            href={GAME_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="header-game-mobile"
+            aria-label="Abrir el Juego Educativo"
+            title="Juego Educativo"
+          >
+            <Gamepad2 size={20} />
+          </a>
+          <button
+            className="mobile-toggle-btn"
+            onClick={toggleMenu}
+            aria-label={menuOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'}
+            aria-expanded={menuOpen}
+          >
+            {menuOpen ? <X size={26} /> : <Menu size={26} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile drawer */}
       <nav className={`mobile-nav ${menuOpen ? 'open' : ''}`} aria-label="Navegación móvil">
-        <NavLink to="/" className="nav-link" onClick={closeMenu}>
-          Inicio
-        </NavLink>
-        <NavLink to="/historia" className="nav-link" onClick={closeMenu}>
-          Historia y Memoria
-        </NavLink>
-        <NavLink to="/testimonios" className="nav-link" onClick={closeMenu}>
-          Testimonios en Primera Persona
-        </NavLink>
-        <NavLink to="/recursos" className="nav-link" onClick={closeMenu}>
-          Recursos Pedagógicos
-        </NavLink>
-        <NavLink to="/diario" className="nav-link" onClick={closeMenu}>
-          Diario Histórico
-        </NavLink>
-        <NavLink to="/archivo-audiovisual" className="nav-link" onClick={closeMenu}>
-          Archivo Audiovisual
-        </NavLink>
-        <NavLink to="/universidad" className="nav-link" onClick={closeMenu}>
-          Proyecto Universitario
-        </NavLink>
-        <NavLink to="/contacto" className="nav-link" onClick={closeMenu}>
-          Contacto
-        </NavLink>
-        <a 
-          href={GAME_URL} 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="btn btn-primary btn-sm" 
-          onClick={closeMenu} 
+        {NAV_ITEMS.map((item) => (
+          <NavLink key={item.to} to={item.to} end={item.end} className={linkClass} onClick={closeMenu}>
+            {item.mobileLabel || item.label}
+          </NavLink>
+        ))}
+        <a
+          href={GAME_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn btn-primary btn-sm"
+          onClick={closeMenu}
           style={{ marginTop: '12px' }}
         >
           <Gamepad2 size={16} />
-          <span>Acceder al Juego</span>
+          <span>Juego Educativo</span>
         </a>
       </nav>
     </header>

@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
 import {
   BookOpen,
-  MessageSquare,
   FileText,
-  Video,
+  Landmark,
   Gamepad2,
   ArrowRight,
+  ExternalLink,
   Compass,
   Users,
   GraduationCap,
@@ -142,17 +142,17 @@ export default function Home() {
               </Link>
             </div>
 
-            {/* Testimonios */}
+            {/* Museo Virtual */}
             <div className="card">
               <div className="card-icon">
-                <MessageSquare size={26} />
+                <Landmark size={26} />
               </div>
-              <h3 className="card-title">Voces en Primera Persona</h3>
+              <h3 className="card-title">Museo Virtual</h3>
               <p className="card-text">
-                Entrevistas grabadas por estudiantes de la Universidad Nacional de Pilar a excombatientes, para conocer sus experiencias y preservar sus testimonios.
+                Videos, un diario histórico digitalizado y testimonios para preservar y compartir la memoria de Malvinas.
               </p>
-              <Link to="/testimonios" className="btn btn-outline btn-sm">
-                Escuchar Testimonios <ArrowRight size={16} />
+              <Link to="/museo-virtual" className="btn btn-outline btn-sm">
+                Recorrer el Museo <ArrowRight size={16} />
               </Link>
             </div>
 
@@ -169,54 +169,31 @@ export default function Home() {
                 Biblioteca Docente <ArrowRight size={16} />
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
 
-            {/* Diario */}
-            <div className="card">
-              <div className="card-icon">
-                <Compass size={26} />
-              </div>
-              <h3 className="card-title">Diario Histórico y Cartas</h3>
-              <p className="card-text">
-                Documentos, cartas y escritos vinculados con la historia y las experiencias de quienes vivieron el conflicto.
-              </p>
-              <Link to="/diario" className="btn btn-outline btn-sm">
-                Consultar Cartas <ArrowRight size={16} />
-              </Link>
+      {/* Juego Educativo destacado */}
+      <section className="juego-banda" aria-labelledby="juego-banda-titulo">
+        <div className="container juego-banda-inner">
+          <div className="juego-banda-texto">
+            <div className="juego-banda-icono" aria-hidden="true">
+              <Gamepad2 size={32} />
             </div>
-
-            {/* Archivo Audiovisual */}
-            <div className="card">
-              <div className="card-icon">
-                <Video size={26} />
-              </div>
-              <h3 className="card-title">Archivo Audiovisual</h3>
-              <p className="card-text">
-                Un espacio con recursos audiovisuales y materiales complementarios para explorar y aprender sobre Malvinas.
-              </p>
-              <Link to="/archivo-audiovisual" className="btn btn-outline btn-sm">
-                Ver Videos <ArrowRight size={16} />
-              </Link>
-            </div>
-
-            {/* Juego Educativo */}
-            <div className="card" style={{ border: '2px solid var(--primary-light)' }}>
-              <div className="card-icon" style={{ backgroundColor: 'var(--primary)', color: 'var(--white)' }}>
-                <Gamepad2 size={26} />
-              </div>
-              <h3 className="card-title">Juego Interactivo</h3>
-              <p className="card-text">
-                Una experiencia interactiva para aprender sobre Malvinas de forma dinámica.
-              </p>
-              <a 
-                href={GAME_URL} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="btn btn-primary btn-sm"
-              >
-                Jugar Ahora <ArrowRight size={16} />
-              </a>
+            <div>
+              <span className="section-eyebrow">Juego Educativo</span>
+              <h2 id="juego-banda-titulo">Aprendé jugando</h2>
+              <p>Una experiencia interactiva para aprender sobre Malvinas de forma dinámica.</p>
             </div>
           </div>
+          <a
+            href={GAME_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-primary btn-lg"
+          >
+            Jugar ahora <ExternalLink size={18} />
+          </a>
         </div>
       </section>
 
@@ -231,11 +208,8 @@ export default function Home() {
             MalvinizAR nace como una iniciativa de estudiantes de la carrera de Comunicación Digital, con el objetivo de crear un espacio digital educativo que reúna testimonios, materiales históricos y recursos interactivos para acercar la historia de Malvinas a las nuevas generaciones.
           </p>
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link to="/universidad" className="btn btn-primary">
+            <Link to="/nosotros" className="btn btn-primary">
               Conocer el Proyecto
-            </Link>
-            <Link to="/contacto" className="btn btn-secondary">
-              Contactarse
             </Link>
           </div>
         </div>
