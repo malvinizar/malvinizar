@@ -22,7 +22,7 @@ export default function Home() {
               Un espacio para aprender, enseñar y compartir la memoria de las Islas Malvinas.
             </p>
             <p className="hero-secundario">
-              Un proyecto educativo y digital creado por y para estudiantes, docentes y toda la comunidad.
+              Un proyecto educativo digital creado por y para estudiantes, docentes y toda la comunidad.
             </p>
           </div>
         </div>
