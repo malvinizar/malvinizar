@@ -859,3 +859,405 @@ h1, h2, h3, h4, h5, h6 {
     transition: transform 0.01s ease !important;
   }
 }
+
+/* =========================================================
+   MalvinizAR - Museo Virtual
+   ========================================================= */
+
+.museo {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.museo-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  padding: 4px;
+  margin: 0 auto 32px;
+  width: fit-content;
+  max-width: 100%;
+  background-color: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+}
+
+.museo-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-family);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #344267;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-full);
+  padding: 10px 20px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: var(--transition);
+}
+
+.museo-tab:hover {
+  color: var(--primary);
+}
+
+.museo-tab.activa {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.museo-tab:focus-visible,
+.museo-carrusel:focus-visible,
+.museo-carrusel-btn:focus-visible,
+.museo-puntos button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.museo-panel-intro {
+  text-align: center;
+  font-weight: 300;
+  color: var(--text-muted);
+  margin-bottom: 28px;
+}
+
+/* Espacio reservado */
+.museo-reservado {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 6px;
+  padding: 32px 24px;
+  color: var(--primary);
+  background-color: var(--white);
+  border: 1.5px dashed var(--primary-light);
+  border-radius: var(--radius-lg);
+}
+
+.museo-reservado--video {
+  aspect-ratio: 16 / 9;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.museo-reservado--hoja {
+  height: 100%;
+  border: none;
+  border-radius: 0;
+}
+
+.museo-reservado-titulo {
+  margin-top: 8px;
+  font-weight: 700;
+  color: #344267;
+}
+
+.museo-reservado-texto {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--text-muted);
+  max-width: 360px;
+}
+
+/* Audiovisual */
+.museo-video-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+.museo-video-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background-color: #344267;
+}
+
+.museo-video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.museo-video figcaption {
+  padding-top: 14px;
+}
+
+.museo-video h3,
+.museo-carrusel-pie h3,
+.museo-testimonio h3 {
+  font-size: 1.05rem;
+  margin-bottom: 4px;
+  color: #344267;
+}
+
+.museo-video p,
+.museo-carrusel-pie p {
+  font-size: 0.92rem;
+  font-weight: 300;
+  color: var(--text-muted);
+}
+
+/* Diario: carrusel */
+.museo-carrusel {
+  outline: none;
+}
+
+.museo-carrusel-escena {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.museo-carrusel-hoja {
+  width: min(100%, 400px);
+  aspect-ratio: 3 / 4;
+  background-color: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+.museo-carrusel-hoja img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background-color: var(--white);
+}
+
+.museo-carrusel-btn {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background-color: var(--white);
+  color: #344267;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.museo-carrusel-btn:hover:not(:disabled) {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.museo-carrusel-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.museo-carrusel-pie {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  max-width: 400px;
+  margin: 20px auto 0;
+}
+
+.museo-contador {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primary);
+  white-space: nowrap;
+}
+
+.museo-puntos {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.museo-puntos button {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--primary-light);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.museo-puntos button.activo {
+  width: 24px;
+  border-radius: var(--radius-full);
+  background-color: var(--primary);
+}
+
+/* Testimonios */
+.museo-testimonios {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.museo-testimonio {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 28px;
+  align-items: center;
+}
+
+.museo-testimonio:not(:has(.museo-video-frame)) {
+  grid-template-columns: 1fr;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.museo-testimonio blockquote {
+  font-size: 1.08rem;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.6;
+  color: #344267;
+  border-left: 3px solid var(--primary);
+  padding-left: 16px;
+  margin-bottom: 14px;
+}
+
+.museo-meta {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.museo-enlace {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+@media (max-width: 768px) {
+  .museo-tabs {
+    width: 100%;
+    border-radius: var(--radius-md);
+  }
+  .museo-tab {
+    flex: 1;
+    flex-direction: column;
+    gap: 4px;
+    padding: 10px 6px;
+    font-size: 0.78rem;
+    white-space: normal;
+    border-radius: var(--radius-sm);
+  }
+  .museo-video-grid,
+  .museo-testimonio {
+    grid-template-columns: 1fr;
+  }
+  .museo-carrusel-escena {
+    gap: 8px;
+  }
+  .museo-carrusel-btn {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* =========================================================
+   MalvinizAR - Juego Educativo (destacado)
+   ========================================================= */
+
+.juego-banda {
+  background-color: #344267;
+  color: var(--white);
+  padding: 56px 0;
+}
+
+.juego-banda-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.juego-banda-texto {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.juego-banda-icono {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-md);
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.juego-banda .section-eyebrow {
+  color: var(--primary-light);
+  margin-bottom: 4px;
+}
+
+.juego-banda h2 {
+  color: var(--white);
+  font-size: 1.7rem;
+  margin-bottom: 4px;
+}
+
+.juego-banda p {
+  color: var(--primary-light);
+  font-weight: 300;
+  max-width: 520px;
+}
+
+.juego-banda .btn {
+  flex-shrink: 0;
+}
+
+/* Botón del juego visible en el header móvil */
+.header-game-mobile {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.header-actions-mobile {
+  display: none;
+  align-items: center;
+  gap: 6px;
+}
+
+@media (max-width: 768px) {
+  .juego-banda-inner,
+  .juego-banda-texto {
+    flex-direction: column;
+    text-align: center;
+  }
+  .juego-banda .btn {
+    width: 100%;
+  }
+  .header-actions-mobile,
+  .header-game-mobile {
+    display: inline-flex;
+  }
+}

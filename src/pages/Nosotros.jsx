@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 import { GraduationCap, ArrowRight } from 'lucide-react';
 
-export default function Universidad() {
+export default function Nosotros() {
   return (
     <div className="section">
       <div className="container container-narrow">
         <div className="section-header">
-          <span className="section-eyebrow">Institucional</span>
+          <span className="section-eyebrow">Nosotros</span>
           <h1 className="section-title">¿Cómo nace MalvinizAR?</h1>
           <p className="section-subtitle">
             Una iniciativa universitaria para acercar la historia de Malvinas a través de la memoria, la comunicación y herramientas digitales de aprendizaje.
@@ -36,8 +36,8 @@ export default function Universidad() {
         </div>
 
         <div style={{ textAlign: 'center', marginTop: '16px' }}>
-          <Link to="/contacto" className="btn btn-primary">
-            Contactarse <ArrowRight size={16} />
+          <Link to="/museo-virtual" className="btn btn-primary">
+            Recorrer el Museo Virtual <ArrowRight size={16} />
           </Link>
         </div>
       </div>
