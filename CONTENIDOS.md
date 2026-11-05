@@ -35,7 +35,7 @@ Lo más fácil es copiar una pieza parecida y cambiar los datos. `piezas/ficha-d
 | Campo | Para qué sirve |
 | --- | --- |
 | `titulo`, `subtitulo` | Título de la obra o recurso |
-| `tipo` | `fotografia`, `imagen`, `video`, `audio`, `presentacion`, `documento`, `infografia` u `otro` |
+| `tipo` | `juego`, `fotografia`, `imagen`, `video`, `audio`, `presentacion`, `documento`, `infografia` u `otro` |
 | `sala` | Slug de la sala (por ejemplo `voces-y-relatos`) |
 | `orden` | Posición dentro de la sala |
 | `destacada` | Aparece en el carrusel principal de la portada |
@@ -48,6 +48,7 @@ Lo más fácil es copiar una pieza parecida y cambiar los datos. `piezas/ficha-d
 | `archivo` | Audio (`.mp3`, `.m4a`), video (`.mp4`) o documento (`.pdf`) |
 | `paginas` | Imágenes de cada página de una presentación o documento, en orden |
 | `videoExterno` | Link de YouTube o Vimeo (se inserta en la ficha) |
+| `juego` | Link de un juego o experiencia web: se juega dentro de la ficha con el botón «Jugar» |
 | `descargable` | Muestra el botón «Descargar» |
 | `autores` | Lista de `{ "nombre", "rol" }` |
 | `fecha` | Texto libre: «1982», «Abril de 2026», «Jueves 23/04» |

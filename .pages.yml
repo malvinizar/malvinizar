@@ -68,7 +68,7 @@ content:
         label: Tipo de contenido
         type: select
         options:
-          values: [fotografia, imagen, video, audio, presentacion, documento, infografia, otro]
+          values: [juego, fotografia, imagen, video, audio, presentacion, documento, infografia, otro]
       - name: sala
         label: Sala
         type: reference
@@ -91,6 +91,7 @@ content:
       - { name: archivo, label: "Archivo (audio, video o PDF)", type: file }
       - { name: paginas, label: "Páginas de la presentación o documento (imágenes en orden)", type: image, options: { multiple: { max: 200 } } }
       - { name: videoExterno, label: "Video externo (link de YouTube o Vimeo)", type: string }
+      - { name: juego, label: "Juego o experiencia interactiva (link para jugar dentro del museo)", type: string }
       - { name: descargable, label: Permitir descarga, type: boolean }
       - name: autores
         label: Autores
