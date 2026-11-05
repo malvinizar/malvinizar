@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Download, ExternalLink, FileText } from 'lucide-react';
 import {
@@ -13,12 +14,11 @@ import {
   urlEmbed,
   parrafos,
   config,
+  tipoDe,
 } from '../../museo/datos';
 import {
   MuseoNav,
-  Migas,
   EtiquetaTipo,
-  EtiquetaDemo,
   Img,
   SinImagen,
   ImagenAmpliable,
@@ -119,123 +119,108 @@ function Dato({ etiqueta, children, vacio, pendiente = false }) {
 export default function MuseoPieza() {
   const { slug } = useParams();
   const pieza = getPieza(slug);
+  const [leerMas, setLeerMas] = useState(false);
   useMetaPagina(pieza?.titulo, pieza?.resumen || pieza?.descripcion);
   useScrollArriba(slug);
 
   if (!pieza) return <NoEncontrado que="pieza" />;
 
   const sala = getSala(pieza.sala);
+  const Icon = tipoDe(pieza).icon;
   const relacionadas = relacionadasDe(pieza, 8);
   const masDeSala = piezasDeSala(pieza.sala).filter((p) => p.slug !== pieza.slug && !relacionadas.includes(p));
   const descarga = pieza.descargable ? pieza.archivo || pieza.imagen : '';
   const pdf = esPdf(pieza.archivo) ? pieza.archivo : '';
   const firma = firmaDe(pieza);
+  const texto = parrafos(pieza.descripcion || pieza.resumen);
 
   return (
     <div className="mv">
       <MuseoNav />
 
-      <article className="mv-contenedor mv-seccion-catalogo">
-        <Migas
-          items={[
-            { to: '/museo-virtual', label: 'Museo' },
-            ...(sala ? [{ to: `/museo-virtual/salas/${sala.slug}`, label: sala.titulo }] : []),
-            { label: pieza.titulo },
-          ]}
-        />
-
-        <div className="mv-producto-pagina">
-          <div className="mv-producto-galeria">
+      <article>
+        <div className="mv-escenario">
+          {pieza.imagen && <img className="mv-escenario-fondo" src={assetUrl(pieza.imagen)} alt="" aria-hidden="true" />}
+          <div className="mv-contenedor mv-escenario-media">
             <Media pieza={pieza} />
-            {pieza.creditoImagen && <p className="mv-credito-imagen">{pieza.creditoImagen}</p>}
           </div>
+        </div>
 
-          <div className="mv-producto-info">
-            <div className="mv-producto-insignias mv-producto-insignias--estaticas">
-              <EtiquetaTipo pieza={pieza} solida />
-              {sala && (
-                <Link to={`/museo-virtual/salas/${sala.slug}`} className="mv-producto-sala">
-                  {sala.titulo}
-                </Link>
+        <div className="mv-contenedor mv-ficha">
+          <p className="mv-ficha-meta">
+            <span className="mv-ficha-tipo"><Icon size={15} aria-hidden="true" /> {tipoDe(pieza).label}</span>
+            {sala && <Link to={`/museo-virtual/salas/${sala.slug}`}>{sala.titulo}</Link>}
+            {pieza.demo && <span className="mv-demo-tag">Demo</span>}
+          </p>
+          <h1 className="mv-ficha-titulo">{pieza.titulo}</h1>
+          {pieza.subtitulo && <p className="mv-ficha-subtitulo">{pieza.subtitulo}</p>}
+          {firma && <p className="mv-ficha-firma">{firma}</p>}
+
+          {(descarga || pdf || pieza.enlaces.length > 0) && (
+            <div className="mv-ficha-acciones">
+              {descarga && (
+                <a href={assetUrl(descarga)} download className="mv-boton mv-boton--claro">
+                  <Download size={18} aria-hidden="true" /> Descargar
+                </a>
               )}
-              <EtiquetaDemo visible={pieza.demo} />
+              {pdf && (
+                <a href={assetUrl(pdf)} target="_blank" rel="noopener noreferrer" className="mv-boton">
+                  <FileText size={18} aria-hidden="true" /> PDF
+                </a>
+              )}
+              {pieza.enlaces.map((e) => (
+                <a key={e.url} href={e.url} target="_blank" rel="noopener noreferrer" className="mv-boton">
+                  {e.etiqueta || 'Enlace'} <ExternalLink size={16} aria-hidden="true" />
+                </a>
+              ))}
             </div>
-            <h1 className="mv-producto-pagina-titulo">{pieza.titulo}</h1>
-            {pieza.subtitulo && <p className="mv-producto-pagina-subtitulo">{pieza.subtitulo}</p>}
-            {firma && <p className="mv-producto-firma mv-producto-firma--grande">{firma}</p>}
+          )}
 
-            {(descarga || pdf || pieza.enlaces.length > 0) && (
-              <div className="mv-producto-acciones">
-                {descarga && (
-                  <a href={assetUrl(descarga)} download className="mv-boton mv-boton--primario mv-boton--ancho">
-                    <Download size={18} aria-hidden="true" /> Descargar
-                  </a>
-                )}
-                {pdf && (
-                  <a href={assetUrl(pdf)} target="_blank" rel="noopener noreferrer" className="mv-boton mv-boton--ancho">
-                    <FileText size={18} aria-hidden="true" /> Abrir PDF
-                  </a>
-                )}
-                {pieza.enlaces.map((e) => (
-                  <a key={e.url} href={e.url} target="_blank" rel="noopener noreferrer" className="mv-boton mv-boton--ancho">
-                    {e.etiqueta || 'Enlace externo'} <ExternalLink size={16} aria-hidden="true" />
-                  </a>
+          {texto.length > 0 && (
+            <div className={`mv-ficha-texto ${leerMas ? 'abierto' : ''}`}>
+              {texto.map((p, k) => (
+                <p key={k}>{p}</p>
+              ))}
+            </div>
+          )}
+          {texto.join(' ').length > 220 && (
+            <button type="button" className="mv-leer-mas" onClick={() => setLeerMas((v) => !v)} aria-expanded={leerMas}>
+              {leerMas ? 'Leer menos' : 'Leer más'}
+            </button>
+          )}
+
+          <details className="mv-creditos">
+            <summary>Créditos</summary>
+            <dl className="mv-datos">
+              <Dato etiqueta="Autoría" vacio={!pieza.autores.length} pendiente>
+                {pieza.autores.map((a) => (
+                  <span key={a.nombre} className="mv-dato-linea">
+                    {a.nombre}
+                    {a.rol && <span className="mv-rol"> · {a.rol}</span>}
+                  </span>
                 ))}
-              </div>
-            )}
-
-            <section className="mv-descripcion" aria-labelledby="descripcion-titulo">
-              <h2 id="descripcion-titulo" className="mv-descripcion-titulo">Descripción</h2>
-              <div className="mv-descripcion-texto">
-                {parrafos(pieza.descripcion || pieza.resumen).map((p, k) => (
-                  <p key={k}>{p}</p>
+              </Dato>
+              {pieza.creditos.map((c) => (
+                <Dato key={c.rol + c.nombre} etiqueta={c.rol || 'Créditos'} vacio={false}>{c.nombre}</Dato>
+              ))}
+              <Dato etiqueta="Imagen / audiovisual" vacio={!pieza.creditoImagen}>{pieza.creditoImagen}</Dato>
+              <Dato etiqueta="Fecha" vacio={!pieza.fecha} pendiente>{pieza.fecha}</Dato>
+              <Dato etiqueta="Procedencia" vacio={!pieza.procedencia} pendiente>{pieza.procedencia}</Dato>
+              <Dato etiqueta="Fuentes" vacio={!pieza.fuentes.length}>
+                {pieza.fuentes.map((f) => (
+                  <span key={f} className="mv-dato-linea">{f}</span>
                 ))}
-              </div>
-
-              <h3 className="mv-descripcion-subtitulo">Créditos</h3>
-              <dl className="mv-datos">
-                <Dato etiqueta="Autoría" vacio={!pieza.autores.length} pendiente>
-                  {pieza.autores.map((a) => (
-                    <span key={a.nombre} className="mv-dato-linea">
-                      {a.nombre}
-                      {a.rol && <span className="mv-rol"> · {a.rol}</span>}
-                    </span>
-                  ))}
-                </Dato>
-                {pieza.creditos.map((c) => (
-                  <Dato key={c.rol + c.nombre} etiqueta={c.rol || 'Créditos'} vacio={false}>{c.nombre}</Dato>
-                ))}
-                <Dato etiqueta="Imagen / audiovisual" vacio={!pieza.creditoImagen}>{pieza.creditoImagen}</Dato>
-                <Dato etiqueta="Fecha" vacio={!pieza.fecha} pendiente>{pieza.fecha}</Dato>
-                <Dato etiqueta="Procedencia" vacio={!pieza.procedencia} pendiente>{pieza.procedencia}</Dato>
-                <Dato etiqueta="Fuentes" vacio={!pieza.fuentes.length}>
-                  {pieza.fuentes.map((f) => (
-                    <span key={f} className="mv-dato-linea">{f}</span>
-                  ))}
-                </Dato>
-                <Dato etiqueta="Derechos de uso" vacio={!pieza.derechos} pendiente>{pieza.derechos}</Dato>
-                <Dato etiqueta="Licencia" vacio={!pieza.licencia}>{pieza.licencia}</Dato>
-              </dl>
-
-              {pieza.etiquetas.length > 0 && (
-                <ul className="mv-etiquetas" aria-label="Etiquetas">
-                  {pieza.etiquetas.map((e) => (
-                    <li key={e}>
-                      <Link to={`/museo-virtual/archivo?q=${encodeURIComponent(e)}`}>#{e}</Link>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </section>
-          </div>
+              </Dato>
+              <Dato etiqueta="Derechos de uso" vacio={!pieza.derechos} pendiente>{pieza.derechos}</Dato>
+              <Dato etiqueta="Licencia" vacio={!pieza.licencia}>{pieza.licencia}</Dato>
+            </dl>
+          </details>
         </div>
       </article>
 
-      <div className="mv-contenedor mv-estantes mv-estantes--ficha">
-        <Carrusel titulo="También te puede interesar" piezas={relacionadas} mostrarSala />
-        {sala && (
-          <Carrusel titulo={`Más de ${sala.titulo}`} verTodo={`/museo-virtual/salas/${sala.slug}`} piezas={masDeSala} />
-        )}
+      <div className="mv-filas mv-filas--ficha">
+        <Carrusel titulo="Más para ver" piezas={relacionadas} />
+        {sala && <Carrusel titulo={`Más de ${sala.titulo}`} verTodo={`/museo-virtual/salas/${sala.slug}`} piezas={masDeSala} />}
       </div>
     </div>
   );

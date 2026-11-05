@@ -11,11 +11,10 @@ import {
   ChevronLeft,
   ChevronRight,
   Maximize2,
-  ArrowRight,
   Search,
-  Landmark,
+  Play,
 } from 'lucide-react';
-import { assetUrl, tipoDe, getSala, config, firmaDe, detalleFormato } from './datos';
+import { assetUrl, tipoDe, config } from './datos';
 import '../styles/museo.css';
 
 /* ---------- SEO básico ---------- */
@@ -46,7 +45,7 @@ export function useScrollArriba(clave) {
 
 /* ---------- Navegación del museo ---------- */
 
-/** Barra del museo: secciones + buscador, como en una tienda. */
+/** Barra del museo: secciones + buscador. En celular el buscador es un ícono. */
 export function MuseoNav() {
   const navigate = useNavigate();
   const [q, setQ] = useState('');
@@ -54,25 +53,22 @@ export function MuseoNav() {
     e.preventDefault();
     navigate(q.trim() ? `/museo-virtual/archivo?q=${encodeURIComponent(q.trim())}` : '/museo-virtual/archivo');
   };
+  const clase = ({ isActive }) => (isActive ? 'activo' : undefined);
   return (
     <nav className="mv-nav" aria-label="Secciones del Museo Virtual">
       <div className="mv-contenedor mv-nav-inner">
-        <Link to="/museo-virtual" className="mv-nav-marca">
-          <Landmark size={18} aria-hidden="true" /> {config.nombre}
-        </Link>
+        <ul>
+          <li><NavLink to="/museo-virtual" end className={clase}>Inicio</NavLink></li>
+          <li><NavLink to="/museo-virtual/archivo" className={clase}>Catálogo</NavLink></li>
+        </ul>
         <form className="mv-nav-buscar" role="search" onSubmit={buscar}>
           <Search size={17} aria-hidden="true" />
           <label className="mv-solo-lectores" htmlFor="mv-buscar">Buscar en el museo</label>
-          <input id="mv-buscar" type="search" placeholder="Buscar piezas, autores, temas…" value={q} onChange={(e) => setQ(e.target.value)} />
+          <input id="mv-buscar" type="search" placeholder="Buscar" value={q} onChange={(e) => setQ(e.target.value)} />
         </form>
-        <ul>
-          <li>
-            <NavLink to="/museo-virtual" end className={({ isActive }) => (isActive ? 'activo' : undefined)}>Inicio</NavLink>
-          </li>
-          <li>
-            <NavLink to="/museo-virtual/archivo" className={({ isActive }) => (isActive ? 'activo' : undefined)}>Catálogo</NavLink>
-          </li>
-        </ul>
+        <Link to="/museo-virtual/archivo?buscar=1" className="mv-nav-lupa" aria-label="Buscar en el museo">
+          <Search size={20} aria-hidden="true" />
+        </Link>
       </div>
     </nav>
   );
@@ -138,43 +134,42 @@ export function SinImagen({ pieza }) {
   );
 }
 
-/* ---------- Tarjeta de producto ---------- */
+/* ---------- Póster (tarjeta) ---------- */
 
-export function TarjetaPieza({ pieza, mostrarSala = true }) {
-  const sala = mostrarSala ? getSala(pieza.sala) : null;
-  const firma = firmaDe(pieza);
-  const detalle = detalleFormato(pieza);
+/**
+ * Póster de una pieza: la producción ocupa toda la tarjeta, con el mismo
+ * material desenfocado de fondo para que entre completa sin recortes.
+ */
+export function TarjetaPieza({ pieza }) {
+  const Icon = tipoDe(pieza).icon;
   return (
-    <article className="mv-producto">
-      <Link to={`/museo-virtual/pieza/${pieza.slug}`} className="mv-producto-enlace">
-        <div className="mv-producto-media">
-          {pieza.imagen ? <Img src={pieza.imagen} alt="" /> : <SinImagen pieza={pieza} />}
-          <div className="mv-producto-insignias">
-            <EtiquetaTipo pieza={pieza} solida />
-            <EtiquetaDemo visible={pieza.demo} />
-          </div>
+    <article className="mv-poster">
+      <Link to={`/museo-virtual/pieza/${pieza.slug}`} className="mv-poster-enlace" aria-label={`${pieza.titulo} — ${tipoDe(pieza).label}`}>
+        <div className="mv-poster-media">
+          {pieza.imagen ? (
+            <>
+              <img className="mv-poster-fondo" src={assetUrl(pieza.imagen)} alt="" loading="lazy" decoding="async" aria-hidden="true" />
+              <Img src={pieza.imagen} alt="" className="mv-poster-img" />
+            </>
+          ) : (
+            <SinImagen pieza={pieza} />
+          )}
+          <span className="mv-poster-tipo" title={tipoDe(pieza).label}>
+            <Icon size={15} aria-hidden="true" />
+          </span>
+          {pieza.demo && <span className="mv-poster-demo">Demo</span>}
         </div>
-        <div className="mv-producto-cuerpo">
-          {sala && <span className="mv-producto-sala">{sala.titulo}</span>}
-          <h3 className="mv-producto-titulo">{pieza.titulo}</h3>
-          {firma && <p className="mv-producto-firma">{firma}</p>}
-          <div className="mv-producto-pie">
-            <span className="mv-producto-detalle">{detalle}</span>
-            <span className="mv-producto-cta">
-              Ver pieza <ArrowRight size={15} aria-hidden="true" />
-            </span>
-          </div>
-        </div>
+        <h3 className="mv-poster-titulo">{pieza.titulo}</h3>
       </Link>
     </article>
   );
 }
 
-export function GrillaPiezas({ piezas, mostrarSala = true }) {
+export function GrillaPiezas({ piezas }) {
   return (
     <div className="mv-grilla">
       {piezas.map((p) => (
-        <TarjetaPieza key={p.slug} pieza={p} mostrarSala={mostrarSala} />
+        <TarjetaPieza key={p.slug} pieza={p} />
       ))}
     </div>
   );
@@ -183,14 +178,14 @@ export function GrillaPiezas({ piezas, mostrarSala = true }) {
 export function EnlaceFlecha({ to, children }) {
   return (
     <Link to={to} className="mv-enlace-flecha">
-      {children} <ArrowRight size={16} aria-hidden="true" />
+      {children} <ChevronRight size={16} aria-hidden="true" />
     </Link>
   );
 }
 
-/* ---------- Carrusel horizontal (estantería) ---------- */
+/* ---------- Fila tipo Netflix ---------- */
 
-export function Carrusel({ titulo, bajada, verTodo, piezas, mostrarSala = false }) {
+export function Carrusel({ titulo, verTodo, piezas }) {
   const pista = useRef(null);
   const [bordes, setBordes] = useState({ inicio: true, fin: false });
 
@@ -217,38 +212,37 @@ export function Carrusel({ titulo, bajada, verTodo, piezas, mostrarSala = false 
   if (!piezas.length) return null;
 
   return (
-    <section className="mv-estante" aria-label={titulo}>
-      <div className="mv-estante-cabecera">
-        <div>
-          <h2 className="mv-estante-titulo">{titulo}</h2>
-          {bajada && <p className="mv-estante-bajada">{bajada}</p>}
-        </div>
-        <div className="mv-estante-acciones">
-          {verTodo && <EnlaceFlecha to={verTodo}>Ver todo</EnlaceFlecha>}
-          <button type="button" className="mv-flecha" onClick={() => mover(-1)} disabled={bordes.inicio} aria-label={`Anterior en ${titulo}`}>
-            <ChevronLeft size={20} />
-          </button>
-          <button type="button" className="mv-flecha" onClick={() => mover(1)} disabled={bordes.fin} aria-label={`Siguiente en ${titulo}`}>
-            <ChevronRight size={20} />
-          </button>
-        </div>
+    <section className="mv-fila" aria-label={titulo}>
+      <div className="mv-contenedor mv-fila-cabecera">
+        <h2 className="mv-fila-titulo">
+          {verTodo ? <Link to={verTodo}>{titulo} <ChevronRight size={20} aria-hidden="true" /></Link> : titulo}
+        </h2>
       </div>
-      <div className="mv-estante-pista" ref={pista} onScroll={medir}>
-        {piezas.map((p) => (
-          <div className="mv-estante-item" key={p.slug}>
-            <TarjetaPieza pieza={p} mostrarSala={mostrarSala} />
-          </div>
-        ))}
+      <div className="mv-fila-cuerpo">
+        <button type="button" className="mv-fila-flecha mv-fila-flecha--izq" onClick={() => mover(-1)} hidden={bordes.inicio} aria-label={`Anterior en ${titulo}`}>
+          <ChevronLeft size={30} />
+        </button>
+        <div className="mv-fila-pista" ref={pista} onScroll={medir}>
+          {piezas.map((p) => (
+            <div className="mv-fila-item" key={p.slug}>
+              <TarjetaPieza pieza={p} />
+            </div>
+          ))}
+        </div>
+        <button type="button" className="mv-fila-flecha mv-fila-flecha--der" onClick={() => mover(1)} hidden={bordes.fin} aria-label={`Siguiente en ${titulo}`}>
+          <ChevronRight size={30} />
+        </button>
       </div>
     </section>
   );
 }
 
-/* ---------- Slider de portada ---------- */
+/* ---------- Portada grande con destacados ---------- */
 
-export function SliderDestacados({ piezas, intervalo = 6500 }) {
+export function SliderDestacados({ piezas, intervalo = 7000 }) {
   const [actual, setActual] = useState(0);
   const [pausa, setPausa] = useState(false);
+  const toque = useRef(null);
   const total = piezas.length;
 
   useEffect(() => {
@@ -263,69 +257,59 @@ export function SliderDestacados({ piezas, intervalo = 6500 }) {
 
   return (
     <section
-      className="mv-slider"
+      className="mv-hero"
       aria-roledescription="carrusel"
-      aria-label="Piezas destacadas"
+      aria-label="Destacados"
       onMouseEnter={() => setPausa(true)}
       onMouseLeave={() => setPausa(false)}
-      onFocus={() => setPausa(true)}
-      onBlur={() => setPausa(false)}
+      onTouchStart={(e) => (toque.current = e.touches[0].clientX)}
+      onTouchEnd={(e) => {
+        if (toque.current === null) return;
+        const dx = e.changedTouches[0].clientX - toque.current;
+        if (Math.abs(dx) > 40) ir(actual + (dx < 0 ? 1 : -1));
+        toque.current = null;
+      }}
     >
       {piezas.map((p, i) => {
-        const sala = getSala(p.sala);
+        const Icon = tipoDe(p).icon;
         return (
           <div
             key={p.slug}
-            className={`mv-slide ${i === actual ? 'activo' : ''}`}
+            className={`mv-hero-slide ${i === actual ? 'activo' : ''}`}
             role="group"
             aria-roledescription="diapositiva"
             aria-label={`${i + 1} de ${total}`}
             aria-hidden={i !== actual}
           >
-            <div className="mv-slide-fondo" aria-hidden="true">
-              {p.imagen && <img src={assetUrl(p.imagen)} alt="" />}
+            {p.imagen && <img className="mv-hero-fondo" src={assetUrl(p.imagen)} alt="" aria-hidden="true" loading={i === 0 ? 'eager' : 'lazy'} />}
+            <div className="mv-hero-pieza">
+              {p.imagen ? <img src={assetUrl(p.imagen)} alt={p.imagenAlt} loading={i === 0 ? 'eager' : 'lazy'} /> : <SinImagen pieza={p} />}
             </div>
-            <div className="mv-contenedor mv-slide-grid">
-              <div className="mv-slide-texto">
-                <div className="mv-slide-insignias">
-                  <EtiquetaTipo pieza={p} solida />
-                  {sala && <span className="mv-slide-sala">{sala.titulo}</span>}
-                </div>
-                <h2 className="mv-slide-titulo">{p.titulo}</h2>
-                {p.resumen && <p className="mv-slide-resumen">{p.resumen}</p>}
-                {firmaDe(p) && <p className="mv-slide-firma">{firmaDe(p)}</p>}
-                <Link to={`/museo-virtual/pieza/${p.slug}`} className="mv-boton mv-boton--primario" tabIndex={i === actual ? 0 : -1}>
-                  Ver pieza <ArrowRight size={18} aria-hidden="true" />
-                </Link>
-              </div>
-              <div className="mv-slide-imagen">
-                {p.imagen ? <img src={assetUrl(p.imagen)} alt={p.imagenAlt} loading={i === 0 ? 'eager' : 'lazy'} /> : <SinImagen pieza={p} />}
-              </div>
+            <div className="mv-contenedor mv-hero-texto">
+              <p className="mv-hero-tipo">
+                <Icon size={15} aria-hidden="true" /> {tipoDe(p).label}
+              </p>
+              <h2 className="mv-hero-titulo">{p.titulo}</h2>
+              <Link to={`/museo-virtual/pieza/${p.slug}`} className="mv-boton mv-boton--claro" tabIndex={i === actual ? 0 : -1}>
+                <Play size={18} aria-hidden="true" fill="currentColor" /> Ver
+              </Link>
             </div>
           </div>
         );
       })}
 
       {total > 1 && (
-        <div className="mv-contenedor mv-slider-controles">
-          <button type="button" className="mv-flecha mv-flecha--clara" onClick={() => ir(actual - 1)} aria-label="Destacado anterior">
-            <ChevronLeft size={20} />
-          </button>
-          <div className="mv-slider-puntos">
-            {piezas.map((p, i) => (
-              <button
-                key={p.slug}
-                type="button"
-                className={i === actual ? 'activo' : ''}
-                onClick={() => ir(i)}
-                aria-label={`Ver destacado ${i + 1}: ${p.titulo}`}
-                aria-current={i === actual}
-              />
-            ))}
-          </div>
-          <button type="button" className="mv-flecha mv-flecha--clara" onClick={() => ir(actual + 1)} aria-label="Destacado siguiente">
-            <ChevronRight size={20} />
-          </button>
+        <div className="mv-hero-puntos">
+          {piezas.map((p, i) => (
+            <button
+              key={p.slug}
+              type="button"
+              className={i === actual ? 'activo' : ''}
+              onClick={() => ir(i)}
+              aria-label={`Ver destacado ${i + 1}: ${p.titulo}`}
+              aria-current={i === actual}
+            />
+          ))}
         </div>
       )}
     </section>
