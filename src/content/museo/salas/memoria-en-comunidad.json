@@ -1,0 +1,13 @@
+{
+  "titulo": "Memoria en comunidad",
+  "bajada": "Actividades y proyectos",
+  "descripcion": "Registros de actividades, convocatorias y proyectos de comunicación que llevan la causa Malvinas a la universidad y a la comunidad de Pilar.",
+  "portada": "/museo/media/imagenes/cartel-unpilar-puerto-argentino.jpg",
+  "portadaAlt": "Grupo junto al cartel indicador de distancia a Puerto Argentino en la UNPilar.",
+  "tipo": "permanente",
+  "periodo": "",
+  "orden": 3,
+  "destacada": true,
+  "publicado": true,
+  "demo": false
+}

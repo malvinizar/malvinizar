@@ -1,0 +1,43 @@
+{
+  "subtitulo": "Una historia de soberanía, geopolítica y memoria",
+  "orden": 2,
+  "destacada": true,
+  "publicado": true,
+  "demo": false,
+  "resumen": "Afiche con una línea de tiempo de la cuestión Malvinas entre 1833 y 2025.",
+  "descripcion": "Afiche en formato de línea de tiempo que recorre hitos de la cuestión Malvinas entre 1833 y 2025: la ocupación británica, el tratamiento del tema en las Naciones Unidas y la Resolución 2065, el documental de Raymundo Gleyzer, la Estación Científica Corbeta Uruguay, la guerra de 1982 y el reclamo vigente.\n\nAbre con la pregunta «¿Habríamos hablado de Malvinas sin la guerra de 1982?» y cierra con el lema «Que el árbol no nos tape el bosque».",
+  "imagen": "/museo/media/imagenes/malvinas-1833-2025-afiche.jpg",
+  "imagenAlt": "Afiche «Malvinas 1833–2025» con línea de tiempo ilustrada con fotografías, mapa de las islas y bandera argentina.",
+  "galeria": [],
+  "archivo": "",
+  "paginas": [],
+  "videoExterno": "",
+  "descargable": true,
+  "autores": [
+    {
+      "nombre": "Jorge Eduardo Bulacio",
+      "rol": "Autor"
+    }
+  ],
+  "fecha": "",
+  "procedencia": "",
+  "creditos": [],
+  "creditoImagen": "",
+  "fuentes": [],
+  "derechos": "",
+  "licencia": "",
+  "enlaces": [],
+  "etiquetas": [
+    "línea de tiempo",
+    "Resolución 2065",
+    "1982"
+  ],
+  "relacionadas": [
+    "soberania-una-construccion-permanente",
+    "argentina-pais-bicontinental"
+  ],
+  "notasInternas": "Completar: fecha, procedencia, origen de las imágenes del afiche, derechos/licencia.",
+  "titulo": "Malvinas 1833–2025",
+  "tipo": "infografia",
+  "sala": "soberania-y-territorio"
+}

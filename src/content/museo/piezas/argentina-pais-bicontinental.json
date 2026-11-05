@@ -1,0 +1,47 @@
+{
+  "subtitulo": "Nuestra soberanía también se construye desde la escuela",
+  "orden": 3,
+  "destacada": true,
+  "publicado": true,
+  "demo": false,
+  "resumen": "Lámina didáctica sobre el mapa bicontinental, la superficie del territorio argentino y la historia de la cuestión Malvinas.",
+  "descripcion": "Lámina didáctica de Geografía e Historia que compara el mapa bicontinental con el mapa continental, presenta la superficie total del territorio argentino y propone una línea de tiempo «Malvinas: una historia que no empezó en 1982».\n\nIncluye preguntas para seguir pensando en el aula, una ilustración «Un país, dos continentes» y códigos QR hacia recursos digitales.",
+  "imagen": "/museo/media/imagenes/argentina-pais-bicontinental.jpg",
+  "imagenAlt": "Composición de láminas: «Argentina: un país bicontinental», línea de tiempo «Malvinas: una historia que no empezó en 1982», mapas y la ilustración «Un país, dos continentes».",
+  "galeria": [],
+  "archivo": "/museo/media/documentos/argentina-pais-bicontinental.pdf",
+  "paginas": [],
+  "videoExterno": "",
+  "descargable": true,
+  "autores": [
+    {
+      "nombre": "María Rocío Grimado",
+      "rol": "Autora"
+    },
+    {
+      "nombre": "Flavia Medina",
+      "rol": "Autora"
+    }
+  ],
+  "fecha": "",
+  "procedencia": "",
+  "creditos": [],
+  "creditoImagen": "",
+  "fuentes": [],
+  "derechos": "",
+  "licencia": "",
+  "enlaces": [],
+  "etiquetas": [
+    "mapa bicontinental",
+    "escuela",
+    "Ley 26.651"
+  ],
+  "relacionadas": [
+    "malvinas-argentinas-causa-nacional",
+    "malvinas-1833-2025"
+  ],
+  "notasInternas": "Autoras tomadas del nombre del archivo. Los metadatos del PDF indican a Mariano Fernandez Ameghino: confirmar si es el docente. Completar fecha, materia y derechos.",
+  "titulo": "Argentina: un país bicontinental",
+  "tipo": "infografia",
+  "sala": "soberania-y-territorio"
+}

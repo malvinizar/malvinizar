@@ -1,0 +1,42 @@
+{
+  "subtitulo": "Sobrevivir al ARA General Belgrano",
+  "orden": 3,
+  "destacada": true,
+  "publicado": true,
+  "demo": false,
+  "resumen": "Tráiler del podcast «Verdad o silencio», sobre la experiencia de sobrevivir al hundimiento del ARA General Belgrano.",
+  "descripcion": "Tráiler del podcast «Verdad o silencio: sobrevivir al ARA General Belgrano», producido por Astro Films. Combina imágenes de archivo del mar y del rescate con fragmentos de una entrevista.\n\nEl tráiler anuncia el estreno el 1 de julio e invita a ver el podcast completo.",
+  "imagen": "/museo/media/imagenes/verdad-o-silencio-poster.jpg",
+  "imagenAlt": "Placa final del tráiler: «Verdad o silencio. Sobrevivir al ARA General Belgrano. Estreno 1 de julio. Astro Films».",
+  "galeria": [],
+  "archivo": "/museo/media/video/verdad-o-silencio-trailer.mp4",
+  "paginas": [],
+  "videoExterno": "",
+  "descargable": false,
+  "autores": [],
+  "fecha": "Estreno anunciado: 1 de julio",
+  "procedencia": "",
+  "creditos": [
+    {
+      "rol": "Producción",
+      "nombre": "Astro Films"
+    }
+  ],
+  "creditoImagen": "",
+  "fuentes": [],
+  "derechos": "",
+  "licencia": "",
+  "enlaces": [],
+  "etiquetas": [
+    "ARA General Belgrano",
+    "podcast",
+    "tráiler"
+  ],
+  "relacionadas": [
+    "astro-films-podcast-aviacion"
+  ],
+  "notasInternas": "Completar: año, nombre de la persona entrevistada, equipo de Astro Films, fuente de las imágenes de archivo, enlace al podcast completo.",
+  "titulo": "Verdad o silencio — Tráiler",
+  "tipo": "video",
+  "sala": "voces-y-relatos"
+}

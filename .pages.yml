@@ -1,0 +1,127 @@
+# Panel de administración del Museo Virtual (Pages CMS — https://app.pagescms.org)
+# Ingresá con tu cuenta de GitHub, elegí el repo malvinizar/malvinizar y editá desde formularios.
+# Cada vez que guardás, Pages CMS hace un commit y GitHub Actions vuelve a publicar el sitio solo.
+
+media:
+  input: public/museo/media
+  output: /museo/media
+  rename: safe
+
+content:
+  - name: museo-config
+    label: "Museo · Portada"
+    type: file
+    path: src/content/museo/config.json
+    format: json
+    fields:
+      - { name: nombre, label: Nombre del museo, type: string }
+      - { name: bajada, label: Bajada, type: string }
+      - { name: descripcion, label: Descripción, type: text }
+      - { name: imagenPortada, label: Imagen de portada, type: image }
+      - { name: imagenPortadaAlt, label: Texto alternativo de la portada, type: string }
+      - { name: invitacion, label: Texto de invitación al recorrido, type: text }
+      - name: mostrarPendientes
+        label: Mostrar «Dato a completar» en las fichas
+        description: Útil mientras se carga la información. Desactivalo antes de difundir el museo.
+        type: boolean
+
+  - name: salas
+    label: "Museo · Salas"
+    type: collection
+    path: src/content/museo/salas
+    format: json
+    filename: "{primary}.json"
+    view:
+      primary: titulo
+      fields: [titulo, tipo, orden, publicado]
+      default: { sort: orden, order: asc }
+    fields:
+      - { name: titulo, label: Título, type: string, required: true }
+      - { name: bajada, label: Bajada, type: string }
+      - { name: descripcion, label: Presentación, type: text, description: "Separá párrafos con una línea en blanco." }
+      - { name: portada, label: Imagen de portada, type: image }
+      - { name: portadaAlt, label: Texto alternativo de la portada, type: string }
+      - name: tipo
+        label: Tipo de exposición
+        type: select
+        options: { values: [permanente, temporal] }
+      - { name: periodo, label: "Período (exposiciones temporales)", type: string }
+      - { name: orden, label: Orden en el recorrido, type: number }
+      - { name: destacada, label: Destacada en la portada, type: boolean }
+      - { name: publicado, label: Publicado, type: boolean, default: true }
+      - { name: demo, label: Contenido demostrativo, type: boolean }
+
+  - name: piezas
+    label: "Museo · Piezas"
+    type: collection
+    path: src/content/museo/piezas
+    format: json
+    filename: "{primary}.json"
+    view:
+      primary: titulo
+      fields: [titulo, tipo, sala, publicado]
+      search: [titulo, resumen]
+    fields:
+      - { name: titulo, label: Título, type: string, required: true }
+      - { name: subtitulo, label: Subtítulo, type: string }
+      - name: tipo
+        label: Tipo de contenido
+        type: select
+        options:
+          values: [fotografia, imagen, video, audio, presentacion, documento, infografia, otro]
+      - name: sala
+        label: Sala
+        type: reference
+        options: { collection: salas, value: "{path}", label: "{titulo}" }
+      - { name: orden, label: Orden dentro de la sala, type: number }
+      - { name: destacada, label: Destacada en la portada, type: boolean }
+      - { name: publicado, label: Publicado, type: boolean, default: true }
+      - { name: demo, label: Contenido demostrativo, type: boolean }
+      - { name: resumen, label: Resumen (una o dos líneas), type: text }
+      - { name: descripcion, label: Descripción y contexto, type: text, description: "Separá párrafos con una línea en blanco." }
+      - { name: imagen, label: "Imagen principal / portada", type: image }
+      - { name: imagenAlt, label: Texto alternativo de la imagen, type: string }
+      - name: galeria
+        label: Galería de imágenes
+        type: object
+        list: true
+        fields:
+          - { name: imagen, label: Imagen, type: image }
+          - { name: pie, label: Epígrafe, type: string }
+      - { name: archivo, label: "Archivo (audio, video o PDF)", type: file }
+      - { name: paginas, label: "Páginas de la presentación o documento (imágenes en orden)", type: image, options: { multiple: { max: 200 } } }
+      - { name: videoExterno, label: "Video externo (link de YouTube o Vimeo)", type: string }
+      - { name: descargable, label: Permitir descarga, type: boolean }
+      - name: autores
+        label: Autores
+        type: object
+        list: true
+        fields:
+          - { name: nombre, label: Nombre, type: string }
+          - { name: rol, label: Rol, type: string }
+      - { name: fecha, label: "Fecha de creación o publicación", type: string }
+      - { name: procedencia, label: "Institución, organización o archivo de procedencia", type: string }
+      - name: creditos
+        label: Créditos de producción
+        type: object
+        list: true
+        fields:
+          - { name: rol, label: Rol, type: string }
+          - { name: nombre, label: Nombre, type: string }
+      - { name: creditoImagen, label: "Fotografía / material audiovisual: autor y fuente", type: string }
+      - { name: fuentes, label: Fuentes bibliográficas o documentales, type: string, list: true }
+      - { name: derechos, label: Derechos de uso y propiedad intelectual, type: text }
+      - { name: licencia, label: "Licencia o autorización", type: string }
+      - name: enlaces
+        label: Enlaces externos o referencia original
+        type: object
+        list: true
+        fields:
+          - { name: etiqueta, label: Texto del enlace, type: string }
+          - { name: url, label: URL, type: string }
+      - { name: etiquetas, label: Etiquetas, type: string, list: true }
+      - name: relacionadas
+        label: Contenidos relacionados
+        type: reference
+        options: { collection: piezas, value: "{path}", label: "{titulo}", multiple: true }
+      - { name: notasInternas, label: "Notas internas (no se publican)", type: text }

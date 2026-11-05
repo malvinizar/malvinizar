@@ -1,0 +1,64 @@
+{
+  "subtitulo": "",
+  "orden": 1,
+  "destacada": true,
+  "publicado": true,
+  "demo": false,
+  "resumen": "Primer capítulo de un podcast de ficción con elementos de radioteatro: una grabación anónima de un joven soldado en Malvinas.",
+  "descripcion": "«¿Hay alguien ahí?» es un podcast de ficción con elementos de radioteatro, dividido en tres capítulos. La historia comienza cuando aparece una grabación anónima entre objetos vinculados a la Guerra de Malvinas: la voz de un joven soldado argentino relata el frío, el hambre, el miedo y la nostalgia por su familia.\n\nEn este primer capítulo, «La señal», la grabación se interrumpe y su pregunta —«¿Hay alguien ahí?»— encuentra respuesta en quienes hoy escuchan su historia. Tagline: «¿Y si todavía nos están hablando?».",
+  "imagen": "/museo/media/paginas/dossier-hay-alguien-ahi/p-01.jpg",
+  "imagenAlt": "Portada del dossier del podcast «¿Hay alguien ahí?».",
+  "galeria": [],
+  "archivo": "/museo/media/audio/hay-alguien-ahi-cap-1-la-senal.mp3",
+  "paginas": [],
+  "videoExterno": "",
+  "descargable": false,
+  "autores": [
+    {
+      "nombre": "Alexis Bodnar",
+      "rol": "Integrante"
+    },
+    {
+      "nombre": "Tomás Corbalán",
+      "rol": "Integrante"
+    },
+    {
+      "nombre": "Abril Díaz Pinto",
+      "rol": "Integrante"
+    },
+    {
+      "nombre": "María del Rocío Grimado",
+      "rol": "Integrante"
+    },
+    {
+      "nombre": "Julieta Sosa",
+      "rol": "Integrante"
+    }
+  ],
+  "fecha": "",
+  "procedencia": "",
+  "creditos": [],
+  "creditoImagen": "",
+  "fuentes": [],
+  "derechos": "",
+  "licencia": "",
+  "enlaces": [
+    {
+      "etiqueta": "Guiones del podcast (Google Drive)",
+      "url": "https://drive.google.com/drive/folders/1yw4mNQoeElv6vsHZEVHOhZSkXX1485S1"
+    }
+  ],
+  "etiquetas": [
+    "podcast",
+    "ficción sonora",
+    "radioteatro"
+  ],
+  "relacionadas": [
+    "dossier-hay-alguien-ahi",
+    "malvinizar-landing-page"
+  ],
+  "notasInternas": "Completar: fecha, voces/elenco, créditos de edición y música, derechos. Sumar capítulos 2 y 3 cuando estén.",
+  "titulo": "¿Hay alguien ahí? — Capítulo 1: La señal",
+  "tipo": "audio",
+  "sala": "voces-y-relatos"
+}

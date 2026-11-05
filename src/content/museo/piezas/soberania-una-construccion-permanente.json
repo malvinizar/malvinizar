@@ -1,0 +1,41 @@
+{
+  "subtitulo": "",
+  "orden": 1,
+  "destacada": true,
+  "publicado": true,
+  "demo": false,
+  "resumen": "Infografía sobre la soberanía como proceso histórico y multidimensional, y su vínculo con la causa Malvinas.",
+  "descripcion": "Infografía ilustrada que presenta la soberanía como un proceso histórico y multidimensional. Contrapone los conceptos de soberanía, imperialismo, nación y colonia, y desarrolla distintas dimensiones de la soberanía estratégica: satelital (ARSAT e INVAP), alimentaria y la causa Malvinas.\n\nLa pieza cita al historiador Fabio Wasserman para presentar la soberanía como un concepto dinámico.",
+  "imagen": "/museo/media/imagenes/soberania-construccion-permanente.jpg",
+  "imagenAlt": "Infografía ilustrada en estilo de plastilina titulada «Soberanía: una construcción permanente», con figuras, satélites, cultivos y un mapa de las Islas Malvinas.",
+  "galeria": [],
+  "archivo": "",
+  "paginas": [],
+  "videoExterno": "",
+  "descargable": true,
+  "autores": [],
+  "fecha": "",
+  "procedencia": "",
+  "creditos": [],
+  "creditoImagen": "Imagen generada con Gemini Notebook (según la marca de agua de la pieza).",
+  "fuentes": [
+    "Fabio Wasserman, historiador (citado en la pieza)."
+  ],
+  "derechos": "",
+  "licencia": "",
+  "enlaces": [],
+  "etiquetas": [
+    "soberanía",
+    "ARSAT",
+    "INVAP",
+    "soberanía alimentaria"
+  ],
+  "relacionadas": [
+    "argentina-pais-bicontinental",
+    "malvinas-1833-2025"
+  ],
+  "notasInternas": "Completar: autor/a, fecha, contexto de producción (materia/docente), derechos.",
+  "titulo": "Soberanía: una construcción permanente",
+  "tipo": "infografia",
+  "sala": "soberania-y-territorio"
+}

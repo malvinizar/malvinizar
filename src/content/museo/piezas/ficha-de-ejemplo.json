@@ -1,0 +1,59 @@
+{
+  "subtitulo": "",
+  "orden": 1,
+  "destacada": false,
+  "publicado": true,
+  "demo": true,
+  "resumen": "Pieza demostrativa: muestra cómo se ve una ficha cuando todos los campos están completos.",
+  "descripcion": "[Ejemplo] Este texto ocupa el lugar de la descripción y el contexto de una pieza. Nada de lo que aparece en esta ficha es información real: sirve sólo como modelo para cargar contenidos.\n\nSe pueden escribir varios párrafos separándolos con una línea en blanco.",
+  "imagen": "/museo/media/demo/demo-portada.svg",
+  "imagenAlt": "Imagen de ejemplo.",
+  "galeria": [
+    {
+      "imagen": "/museo/media/demo/demo-portada.svg",
+      "pie": "[Ejemplo] Primera imagen de una galería."
+    },
+    {
+      "imagen": "/museo/media/demo/demo-2.svg",
+      "pie": "[Ejemplo] Segunda imagen de una galería."
+    }
+  ],
+  "archivo": "",
+  "paginas": [],
+  "videoExterno": "",
+  "descargable": false,
+  "autores": [
+    {
+      "nombre": "[Ejemplo] Nombre Apellido",
+      "rol": "Autor/a"
+    }
+  ],
+  "fecha": "[Ejemplo] Abril de 2026",
+  "procedencia": "[Ejemplo] Institución o archivo de procedencia",
+  "creditos": [
+    {
+      "rol": "[Ejemplo] Edición",
+      "nombre": "[Ejemplo] Nombre Apellido"
+    }
+  ],
+  "creditoImagen": "[Ejemplo] Foto: Nombre Apellido / Archivo de procedencia",
+  "fuentes": [
+    "[Ejemplo] Apellido, N. (año). Título de la obra. Editorial."
+  ],
+  "derechos": "[Ejemplo] © Nombre Apellido. Todos los derechos reservados.",
+  "licencia": "[Ejemplo] CC BY-NC 4.0",
+  "enlaces": [
+    {
+      "etiqueta": "[Ejemplo] Referencia original",
+      "url": "https://example.org"
+    }
+  ],
+  "etiquetas": [
+    "ejemplo"
+  ],
+  "relacionadas": [],
+  "notasInternas": "Pieza demostrativa. Desmarcar «Publicado» para ocultarla.",
+  "titulo": "[DEMO] Ficha de ejemplo con todos los campos",
+  "tipo": "otro",
+  "sala": "sala-de-muestra"
+}

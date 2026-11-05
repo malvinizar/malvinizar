@@ -1,0 +1,60 @@
+{
+  "subtitulo": "Seminario Malvinas Argentinas",
+  "orden": 4,
+  "destacada": false,
+  "publicado": true,
+  "demo": false,
+  "resumen": "Presentación de seminario sobre lo que representa la causa Malvinas, la soberanía y su dimensión latinoamericana.",
+  "descripcion": "Presentación realizada para el Seminario Malvinas Argentinas. Recorre cinco ejes: qué representa la causa Malvinas, la soberanía argentina y los yaganes, la causa latinoamericana, Corrientes («coraje, chamamé y sapukai») y una conclusión proyectada al año 2035.\n\nIncluye un código QR para que el público participe de la presentación.",
+  "imagen": "/museo/media/paginas/malvinas-argentinas-causa-nacional/p-01.jpg",
+  "imagenAlt": "Portada de la presentación «Malvinas Argentinas: una causa nacional».",
+  "galeria": [],
+  "archivo": "/museo/media/documentos/malvinas-argentinas-causa-nacional.pdf",
+  "paginas": [
+    "/museo/media/paginas/malvinas-argentinas-causa-nacional/p-01.jpg",
+    "/museo/media/paginas/malvinas-argentinas-causa-nacional/p-02.jpg",
+    "/museo/media/paginas/malvinas-argentinas-causa-nacional/p-03.jpg",
+    "/museo/media/paginas/malvinas-argentinas-causa-nacional/p-04.jpg",
+    "/museo/media/paginas/malvinas-argentinas-causa-nacional/p-05.jpg",
+    "/museo/media/paginas/malvinas-argentinas-causa-nacional/p-06.jpg",
+    "/museo/media/paginas/malvinas-argentinas-causa-nacional/p-07.jpg",
+    "/museo/media/paginas/malvinas-argentinas-causa-nacional/p-08.jpg",
+    "/museo/media/paginas/malvinas-argentinas-causa-nacional/p-09.jpg",
+    "/museo/media/paginas/malvinas-argentinas-causa-nacional/p-10.jpg",
+    "/museo/media/paginas/malvinas-argentinas-causa-nacional/p-11.jpg",
+    "/museo/media/paginas/malvinas-argentinas-causa-nacional/p-12.jpg"
+  ],
+  "videoExterno": "",
+  "descargable": true,
+  "autores": [
+    {
+      "nombre": "Ximena Matilde Bolaño",
+      "rol": "Alumna"
+    }
+  ],
+  "fecha": "",
+  "procedencia": "",
+  "creditos": [
+    {
+      "rol": "Docente",
+      "nombre": "Mariano Fernandez Ameghino"
+    }
+  ],
+  "creditoImagen": "",
+  "fuentes": [],
+  "derechos": "",
+  "licencia": "",
+  "enlaces": [],
+  "etiquetas": [
+    "seminario",
+    "yaganes",
+    "Corrientes"
+  ],
+  "relacionadas": [
+    "argentina-pais-bicontinental"
+  ],
+  "notasInternas": "Completar: fecha, institución/materia, fuentes citadas en la presentación, derechos.",
+  "titulo": "Malvinas Argentinas: una causa nacional",
+  "tipo": "presentacion",
+  "sala": "soberania-y-territorio"
+}

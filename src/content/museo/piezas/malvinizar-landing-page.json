@@ -1,0 +1,80 @@
+{
+  "subtitulo": "Presentación de diseño interactivo",
+  "orden": 3,
+  "destacada": false,
+  "publicado": true,
+  "demo": false,
+  "resumen": "Presentación del proyecto de diseño interactivo MalvinizAR: investigación de usuario, personas, mapa del sitio, heurísticas y prototipo.",
+  "descripcion": "Presentación del proyecto MalvinizAR para diseño interactivo. Incluye la investigación de usuario (hallazgos, oportunidades y necesidades), personas usuarias, el mapa del sitio, las heurísticas aplicadas, el sistema visual y de accesibilidad, un prototipo de fidelidad media y una reflexión final.\n\nAbre con una cita de Diego Armando Maradona en homenaje a veteranos y familiares de los caídos.",
+  "imagen": "/museo/media/paginas/malvinizar-landing-page/p-01.jpg",
+  "imagenAlt": "Portada de la presentación de la landing page MalvinizAR.",
+  "galeria": [],
+  "archivo": "/museo/media/documentos/malvinizar-landing-page.pdf",
+  "paginas": [
+    "/museo/media/paginas/malvinizar-landing-page/p-01.jpg",
+    "/museo/media/paginas/malvinizar-landing-page/p-02.jpg",
+    "/museo/media/paginas/malvinizar-landing-page/p-03.jpg",
+    "/museo/media/paginas/malvinizar-landing-page/p-04.jpg",
+    "/museo/media/paginas/malvinizar-landing-page/p-05.jpg",
+    "/museo/media/paginas/malvinizar-landing-page/p-06.jpg",
+    "/museo/media/paginas/malvinizar-landing-page/p-07.jpg",
+    "/museo/media/paginas/malvinizar-landing-page/p-08.jpg",
+    "/museo/media/paginas/malvinizar-landing-page/p-09.jpg",
+    "/museo/media/paginas/malvinizar-landing-page/p-10.jpg",
+    "/museo/media/paginas/malvinizar-landing-page/p-11.jpg",
+    "/museo/media/paginas/malvinizar-landing-page/p-12.jpg",
+    "/museo/media/paginas/malvinizar-landing-page/p-13.jpg",
+    "/museo/media/paginas/malvinizar-landing-page/p-14.jpg",
+    "/museo/media/paginas/malvinizar-landing-page/p-15.jpg",
+    "/museo/media/paginas/malvinizar-landing-page/p-16.jpg"
+  ],
+  "videoExterno": "",
+  "descargable": true,
+  "autores": [
+    {
+      "nombre": "Alexis Bodnar",
+      "rol": "Integrante"
+    },
+    {
+      "nombre": "Tomás Corbalán",
+      "rol": "Integrante"
+    },
+    {
+      "nombre": "Lautaro Chavez",
+      "rol": "Integrante"
+    },
+    {
+      "nombre": "Rocío Grimado",
+      "rol": "Integrante"
+    },
+    {
+      "nombre": "Julieta Sosa",
+      "rol": "Integrante"
+    },
+    {
+      "nombre": "Isis González",
+      "rol": "Integrante"
+    }
+  ],
+  "fecha": "",
+  "procedencia": "",
+  "creditos": [],
+  "creditoImagen": "",
+  "fuentes": [],
+  "derechos": "",
+  "licencia": "",
+  "enlaces": [],
+  "etiquetas": [
+    "diseño interactivo",
+    "UX",
+    "landing page"
+  ],
+  "relacionadas": [
+    "dossier-hay-alguien-ahi",
+    "gauchos-desmuteados-one-sheet"
+  ],
+  "notasInternas": "El PDF descargable es una versión liviana (el original pesaba 28 MB). Completar fecha, materia y docente.",
+  "titulo": "MalvinizAR — Propuesta de landing page",
+  "tipo": "presentacion",
+  "sala": "memoria-en-comunidad"
+}
