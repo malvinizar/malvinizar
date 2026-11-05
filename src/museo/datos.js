@@ -19,6 +19,7 @@ import {
   FileText,
   ChartColumn,
   Shapes,
+  Gamepad2,
 } from 'lucide-react';
 import configJson from '../content/museo/config.json';
 
@@ -46,11 +47,13 @@ export const TIPOS = {
   presentacion: { label: 'Presentación', icon: Presentation, filtro: 'presentaciones' },
   documento: { label: 'Documento', icon: FileText, filtro: 'documentos' },
   infografia: { label: 'Infografía', icon: ChartColumn, filtro: 'infografias' },
+  juego: { label: 'Juego', icon: Gamepad2, filtro: 'juegos' },
   otro: { label: 'Recurso digital', icon: Shapes, filtro: 'otros' },
 };
 
 /** Filtros del Archivo multimedia (agrupan tipos). */
 export const FILTROS = [
+  { id: 'juegos', label: 'Juegos' },
   { id: 'imagenes', label: 'Fotografías e imágenes' },
   { id: 'videos', label: 'Videos' },
   { id: 'audio', label: 'Podcasts y audio' },
@@ -105,6 +108,7 @@ function normalizarPieza(slug, d) {
     archivo: texto(d.archivo),
     paginas: lista(d.paginas),
     videoExterno: texto(d.videoExterno),
+    juego: texto(d.juego),
     descargable: Boolean(d.descargable),
     autores: lista(d.autores).filter((a) => a?.nombre),
     fecha: texto(d.fecha),
@@ -204,6 +208,7 @@ export function firmaDe(p) {
 export function detalleFormato(p) {
   if (p.paginas.length > 1) return `${p.paginas.length} páginas`;
   if (p.galeria.length > 1) return `${p.galeria.length} imágenes`;
+  if (p.juego) return 'Interactivo';
   if (p.videoExterno || esVideo(p.archivo)) return 'Video';
   if (esAudio(p.archivo)) return 'Audio';
   return '';

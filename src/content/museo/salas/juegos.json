@@ -1,0 +1,13 @@
+{
+  "titulo": "Juegos",
+  "bajada": "Aprender jugando",
+  "descripcion": "Juegos y experiencias interactivas para recorrer la historia de Malvinas.",
+  "portada": "/museo/media/imagenes/juego-trivia-malvinizar.svg",
+  "portadaAlt": "",
+  "tipo": "permanente",
+  "periodo": "",
+  "orden": 0,
+  "destacada": true,
+  "publicado": true,
+  "demo": false
+}

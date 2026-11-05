@@ -1,0 +1,56 @@
+{
+  "subtitulo": "",
+  "orden": 2,
+  "destacada": true,
+  "publicado": true,
+  "demo": false,
+  "resumen": "Proyecto narrativo transmedia interactivo sobre la Gesta de Malvinas en 1982.",
+  "descripcion": "Proyecto narrativo transmedia interactivo sobre la Gesta de Malvinas en 1982.",
+  "imagen": "/museo/media/imagenes/juego-en-primera-persona.svg",
+  "imagenAlt": "Portada de «Malvinas en primera persona».",
+  "galeria": [],
+  "archivo": "",
+  "paginas": [],
+  "videoExterno": "",
+  "descargable": false,
+  "autores": [
+    {
+      "nombre": "Candela Bulacio",
+      "rol": "Coautor/a"
+    },
+    {
+      "nombre": "Joaquín Tomasello",
+      "rol": "Coautor/a"
+    },
+    {
+      "nombre": "Ezequiel Zelonka",
+      "rol": "Coautor/a"
+    }
+  ],
+  "fecha": "",
+  "procedencia": "",
+  "creditos": [],
+  "creditoImagen": "",
+  "fuentes": [],
+  "derechos": "",
+  "licencia": "",
+  "enlaces": [
+    {
+      "etiqueta": "Abrir en pantalla completa",
+      "url": "https://enprimerapersona.github.io/Malvinas/?p=/ra"
+    }
+  ],
+  "etiquetas": [
+    "juego",
+    "transmedia",
+    "interactivo"
+  ],
+  "relacionadas": [
+    "trivia-malvinizar"
+  ],
+  "notasInternas": "Completar: fecha, procedencia, derechos. Portada provisoria.",
+  "titulo": "Malvinas en primera persona",
+  "tipo": "juego",
+  "sala": "juegos",
+  "juego": "https://enprimerapersona.github.io/Malvinas/?p=/ra"
+}

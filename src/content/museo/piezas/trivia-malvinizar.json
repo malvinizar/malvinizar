@@ -1,0 +1,63 @@
+{
+  "subtitulo": "",
+  "orden": 1,
+  "destacada": true,
+  "publicado": true,
+  "demo": false,
+  "resumen": "Trivia educativa sobre Malvinas para estudiantes secundarios.",
+  "descripcion": "Trivia educativa sobre Malvinas para estudiantes secundarios, inspirada en Preguntados: girá la ruleta, respondé y llená el Malvinómetro. Incluye un ranking de jugadores.",
+  "imagen": "/museo/media/imagenes/juego-trivia-malvinizar.svg",
+  "imagenAlt": "Portada del juego «MalvinizAR · La trivia de Malvinas».",
+  "galeria": [],
+  "archivo": "",
+  "paginas": [],
+  "videoExterno": "",
+  "descargable": false,
+  "autores": [
+    {
+      "nombre": "Candela Bulacio",
+      "rol": "Integrante"
+    },
+    {
+      "nombre": "Ana Medina",
+      "rol": "Integrante"
+    },
+    {
+      "nombre": "Juan Cabrera",
+      "rol": "Integrante"
+    },
+    {
+      "nombre": "Santino Goñi",
+      "rol": "Integrante"
+    },
+    {
+      "nombre": "Mayra Moscoso",
+      "rol": "Integrante"
+    }
+  ],
+  "fecha": "",
+  "procedencia": "Trabajo de la carrera — Universidad Nacional de Pilar",
+  "creditos": [],
+  "creditoImagen": "",
+  "fuentes": [],
+  "derechos": "",
+  "licencia": "",
+  "enlaces": [
+    {
+      "etiqueta": "Jugar en pantalla completa",
+      "url": "https://malvinizar.github.io/malvinizados/"
+    }
+  ],
+  "etiquetas": [
+    "juego",
+    "trivia"
+  ],
+  "relacionadas": [
+    "en-primera-persona"
+  ],
+  "notasInternas": "Completar: fecha, materia/docente, derechos. Portada provisoria (se puede reemplazar por una captura del juego).",
+  "titulo": "MalvinizAR · La trivia de Malvinas",
+  "tipo": "juego",
+  "sala": "juegos",
+  "juego": "https://malvinizar.github.io/malvinizados/"
+}

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { Download, ExternalLink, FileText } from 'lucide-react';
+import { Download, ExternalLink, FileText, Play } from 'lucide-react';
 import {
   getPieza,
   getSala,
@@ -30,9 +30,31 @@ import {
 } from '../../museo/componentes';
 import NoEncontrado from './NoEncontrado';
 
+/** Juego o experiencia interactiva: se carga dentro del museo recién al tocar «Jugar». */
+function Juego({ pieza }) {
+  const [jugando, setJugando] = useState(false);
+  if (jugando) {
+    return (
+      <div className="mv-juego">
+        <iframe src={pieza.juego} title={pieza.titulo} allow="fullscreen; autoplay; clipboard-write" allowFullScreen />
+      </div>
+    );
+  }
+  return (
+    <button type="button" className="mv-juego mv-juego--portada" onClick={() => setJugando(true)}>
+      {pieza.imagen && <Img src={pieza.imagen} alt={pieza.imagenAlt} prioridad />}
+      <span className="mv-juego-jugar">
+        <Play size={22} fill="currentColor" aria-hidden="true" /> Jugar
+      </span>
+    </button>
+  );
+}
+
 /** Elige cómo mostrar el material según lo que tenga cargado la pieza. */
 function Media({ pieza }) {
   const { archivo, videoExterno, paginas, galeria, imagen, imagenAlt, titulo } = pieza;
+
+  if (pieza.juego) return <Juego pieza={pieza} />;
 
   if (videoExterno) {
     return (
