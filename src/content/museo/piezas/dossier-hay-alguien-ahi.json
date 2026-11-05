@@ -1,0 +1,81 @@
+{
+  "subtitulo": "",
+  "orden": 2,
+  "destacada": false,
+  "publicado": true,
+  "demo": false,
+  "resumen": "Dossier de producción del podcast: definición de Malvinizar, público, logline, sinopsis, personajes, capítulos y estrategia transmedia.",
+  "descripcion": "Dossier de presentación del podcast «¿Hay alguien ahí?». Reúne la definición de «malvinizar», el público objetivo, logline, tagline, storyline y sinopsis, el desarrollo narrativo de los tres capítulos («La señal», «La noche» y «La última grabación»), los personajes, la estrategia transmedia y los integrantes del equipo.",
+  "imagen": "/museo/media/paginas/dossier-hay-alguien-ahi/p-01.jpg",
+  "imagenAlt": "Portada del dossier del podcast «¿Hay alguien ahí?».",
+  "galeria": [],
+  "archivo": "/museo/media/documentos/dossier-hay-alguien-ahi.pdf",
+  "paginas": [
+    "/museo/media/paginas/dossier-hay-alguien-ahi/p-01.jpg",
+    "/museo/media/paginas/dossier-hay-alguien-ahi/p-02.jpg",
+    "/museo/media/paginas/dossier-hay-alguien-ahi/p-03.jpg",
+    "/museo/media/paginas/dossier-hay-alguien-ahi/p-04.jpg",
+    "/museo/media/paginas/dossier-hay-alguien-ahi/p-05.jpg",
+    "/museo/media/paginas/dossier-hay-alguien-ahi/p-06.jpg",
+    "/museo/media/paginas/dossier-hay-alguien-ahi/p-07.jpg",
+    "/museo/media/paginas/dossier-hay-alguien-ahi/p-08.jpg",
+    "/museo/media/paginas/dossier-hay-alguien-ahi/p-09.jpg",
+    "/museo/media/paginas/dossier-hay-alguien-ahi/p-10.jpg",
+    "/museo/media/paginas/dossier-hay-alguien-ahi/p-11.jpg",
+    "/museo/media/paginas/dossier-hay-alguien-ahi/p-12.jpg",
+    "/museo/media/paginas/dossier-hay-alguien-ahi/p-13.jpg",
+    "/museo/media/paginas/dossier-hay-alguien-ahi/p-14.jpg",
+    "/museo/media/paginas/dossier-hay-alguien-ahi/p-15.jpg",
+    "/museo/media/paginas/dossier-hay-alguien-ahi/p-16.jpg"
+  ],
+  "videoExterno": "",
+  "descargable": true,
+  "autores": [
+    {
+      "nombre": "Alexis Bodnar",
+      "rol": "Integrante"
+    },
+    {
+      "nombre": "Tomás Corbalán",
+      "rol": "Integrante"
+    },
+    {
+      "nombre": "Abril Díaz Pinto",
+      "rol": "Integrante"
+    },
+    {
+      "nombre": "María del Rocío Grimado",
+      "rol": "Integrante"
+    },
+    {
+      "nombre": "Julieta Sosa",
+      "rol": "Integrante"
+    }
+  ],
+  "fecha": "",
+  "procedencia": "",
+  "creditos": [],
+  "creditoImagen": "",
+  "fuentes": [],
+  "derechos": "",
+  "licencia": "",
+  "enlaces": [
+    {
+      "etiqueta": "Guiones del podcast (Google Drive)",
+      "url": "https://drive.google.com/drive/folders/1yw4mNQoeElv6vsHZEVHOhZSkXX1485S1"
+    }
+  ],
+  "etiquetas": [
+    "podcast",
+    "transmedia",
+    "dossier"
+  ],
+  "relacionadas": [
+    "hay-alguien-ahi-cap-1",
+    "malvinizar-landing-page"
+  ],
+  "notasInternas": "El PDF descargable es una versión liviana armada con las páginas (el original pesaba 45 MB). Completar fecha y materia.",
+  "titulo": "Dossier del podcast «¿Hay alguien ahí?»",
+  "tipo": "presentacion",
+  "sala": "voces-y-relatos"
+}

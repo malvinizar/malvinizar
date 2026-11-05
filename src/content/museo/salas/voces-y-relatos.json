@@ -1,0 +1,13 @@
+{
+  "titulo": "Voces y relatos",
+  "bajada": "Podcasts, audio y video",
+  "descripcion": "Producciones sonoras y audiovisuales que recuperan voces y experiencias vinculadas a Malvinas: ficción sonora, podcasts y adelantos audiovisuales.",
+  "portada": "/museo/media/imagenes/verdad-o-silencio-fotograma.jpg",
+  "portadaAlt": "Fotograma del tráiler «Verdad o silencio»: balsa salvavidas naranja en el mar.",
+  "tipo": "permanente",
+  "periodo": "",
+  "orden": 2,
+  "destacada": true,
+  "publicado": true,
+  "demo": false
+}

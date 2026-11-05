@@ -1,0 +1,13 @@
+{
+  "titulo": "Sala de muestra",
+  "bajada": "Contenido demostrativo",
+  "descripcion": "[DEMO] Esta sala existe sólo para mostrar cómo se ve una exposición temporal y una ficha con todos sus campos completos. Para ocultarla, desmarcá «Publicado» en el panel de contenidos.",
+  "portada": "/museo/media/demo/demo-portada.svg",
+  "portadaAlt": "Imagen de ejemplo.",
+  "tipo": "temporal",
+  "periodo": "[Ejemplo] Del 1 al 30 de noviembre",
+  "orden": 99,
+  "destacada": false,
+  "publicado": true,
+  "demo": true
+}

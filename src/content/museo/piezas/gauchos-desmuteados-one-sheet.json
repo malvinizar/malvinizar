@@ -1,0 +1,49 @@
+{
+  "subtitulo": "Stream sobre la desmalvinización",
+  "orden": 4,
+  "destacada": false,
+  "publicado": true,
+  "demo": false,
+  "resumen": "One sheet de la productora Gauchos Desmuteados: un stream de tres entrevistas sobre la desmalvinización y un cómic para chicos.",
+  "descripcion": "Gauchos Desmuteados es una productora que busca representar la cultura argentina y reforzar la identidad local en Pilar. Esta one sheet presenta un stream de tres entrevistas sobre la desmalvinización, con veteranos, familiares y un profesor de la universidad como invitados.\n\nPreguntas que guían el stream: ¿por qué no se habló de Malvinas durante años?, ¿cómo recuerdan el regreso de las islas?, ¿cómo fue crecer siendo hija de un veterano? También presenta un cómic para chicos de 7 años en adelante sobre un veterano que habla con su nieta sobre la guerra.",
+  "imagen": "/museo/media/paginas/gauchos-desmuteados-one-sheet/p-1.jpg",
+  "imagenAlt": "One sheet de Gauchos Desmuteados con fotos del stream y la tapa del cómic.",
+  "galeria": [],
+  "archivo": "/museo/media/documentos/gauchos-desmuteados-one-sheet.pdf",
+  "paginas": [
+    "/museo/media/paginas/gauchos-desmuteados-one-sheet/p-1.jpg"
+  ],
+  "videoExterno": "",
+  "descargable": true,
+  "autores": [
+    {
+      "nombre": "Rocío Grimado",
+      "rol": "Integrante"
+    },
+    {
+      "nombre": "Tomás Corbalán",
+      "rol": "Integrante"
+    }
+  ],
+  "fecha": "",
+  "procedencia": "Gauchos Desmuteados (productora)",
+  "creditos": [],
+  "creditoImagen": "",
+  "fuentes": [],
+  "derechos": "",
+  "licencia": "",
+  "enlaces": [],
+  "etiquetas": [
+    "desmalvinización",
+    "stream",
+    "cómic"
+  ],
+  "relacionadas": [
+    "malvinizar-landing-page",
+    "hay-alguien-ahi-cap-1"
+  ],
+  "notasInternas": "Completar: enlace al stream y al tráiler, fecha, nombre del cómic.",
+  "titulo": "Gauchos Desmuteados — One sheet",
+  "tipo": "documento",
+  "sala": "memoria-en-comunidad"
+}

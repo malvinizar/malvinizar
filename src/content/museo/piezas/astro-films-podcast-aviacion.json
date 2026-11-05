@@ -1,0 +1,41 @@
+{
+  "subtitulo": "",
+  "orden": 4,
+  "destacada": false,
+  "publicado": true,
+  "demo": false,
+  "resumen": "Episodio de podcast de Astro Films dedicado a la aviación.",
+  "descripcion": "Episodio de podcast de Astro Films dedicado a la aviación.",
+  "imagen": "",
+  "imagenAlt": "",
+  "galeria": [],
+  "archivo": "/museo/media/audio/astro-films-podcast-aviacion.m4a",
+  "paginas": [],
+  "videoExterno": "",
+  "descargable": false,
+  "autores": [],
+  "fecha": "",
+  "procedencia": "",
+  "creditos": [
+    {
+      "rol": "Producción",
+      "nombre": "Astro Films"
+    }
+  ],
+  "creditoImagen": "",
+  "fuentes": [],
+  "derechos": "",
+  "licencia": "",
+  "enlaces": [],
+  "etiquetas": [
+    "podcast",
+    "aviación"
+  ],
+  "relacionadas": [
+    "verdad-o-silencio-trailer"
+  ],
+  "notasInternas": "TÍTULO PROVISORIO (tomado del nombre del archivo). Completar: título real, descripción, participantes, fecha, imagen de portada.",
+  "titulo": "Podcast de Astro Films: aviación",
+  "tipo": "audio",
+  "sala": "voces-y-relatos"
+}
