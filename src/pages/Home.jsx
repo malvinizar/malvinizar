@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import {
   BookOpen,
-  FileText,
   Landmark,
   Gamepad2,
   ArrowRight,
@@ -39,7 +38,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid-3">
+          <div className="grid-2">
             {/* Historia */}
             <div className="card">
               <div className="card-icon">
@@ -65,20 +64,6 @@ export default function Home() {
               </p>
               <Link to="/museo-virtual" className="btn btn-outline btn-sm">
                 Recorrer el Museo <ArrowRight size={16} />
-              </Link>
-            </div>
-
-            {/* Recursos Pedagógicos */}
-            <div className="card">
-              <div className="card-icon">
-                <FileText size={26} />
-              </div>
-              <h3 className="card-title">Recursos Educativos</h3>
-              <p className="card-text">
-                Materiales y propuestas para trabajar la historia de Malvinas en el aula.
-              </p>
-              <Link to="/recursos" className="btn btn-outline btn-sm">
-                Biblioteca Docente <ArrowRight size={16} />
               </Link>
             </div>
           </div>
