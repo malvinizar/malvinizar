@@ -7,7 +7,6 @@ const NAV_ITEMS = [
   { to: '/', label: 'Inicio', end: true },
   { to: '/historia', label: 'Historia', mobileLabel: 'Historia y Memoria' },
   { to: '/museo-virtual', label: 'Museo Virtual' },
-  { to: '/recursos', label: 'Recursos', mobileLabel: 'Recursos Pedagógicos' },
   { to: '/nosotros', label: 'Nosotros' },
 ];
 
