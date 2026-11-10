@@ -1,9 +1,8 @@
 {
-  "nombre": "Museo Virtual MalvinizAR",
-  "bajada": "Archivo de la memoria",
-  "descripcion": "Un espacio digital para preservar y compartir la memoria histórica de Malvinas. Recorré sus salas y explorá fotografías, podcasts, videos, presentaciones e infografías producidas por estudiantes, docentes y la comunidad.",
+  "nombre": "Producciones de estudiantes",
+  "bajada": "Trabajos sobre Malvinas realizados en la UNPILAR",
+  "descripcion": "Podcasts, videos, infografías, presentaciones, juegos y fotografías sobre Malvinas producidos por estudiantes de la Universidad Nacional de Pilar.",
   "imagenPortada": "/museo/media/imagenes/cartel-unpilar-puerto-argentino.jpg",
   "imagenPortadaAlt": "Grupo de estudiantes y docentes junto al cartel «Islas Malvinas — A Puerto Argentino 1920 km» en el campus de la Universidad Nacional de Pilar.",
-  "invitacion": "Cada pieza tiene su ficha con autores, créditos y fuentes. Empezá por la primera sala o explorá el archivo completo.",
   "mostrarPendientes": true
 }

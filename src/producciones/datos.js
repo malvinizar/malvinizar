@@ -1,9 +1,9 @@
 /**
- * Museo Virtual — capa de datos.
+ * Producciones de estudiantes — capa de datos.
  *
  * Los contenidos viven en archivos JSON independientes dentro de src/content/museo/:
- *   - config.json      → textos de la portada del museo
- *   - salas/*.json     → una sala o exposición por archivo
+ *   - config.json      → opciones generales de la sección Producciones
+ *   - salas/*.json     → ejes temáticos (sirven para filtrar)
  *   - piezas/*.json    → una pieza (foto, video, audio, documento…) por archivo
  *
  * El nombre del archivo es el identificador (slug) que aparece en la URL.
@@ -22,6 +22,7 @@ import {
   Gamepad2,
 } from 'lucide-react';
 import configJson from '../content/museo/config.json';
+import { historiaData } from '../data/historiaData';
 
 const salasModulos = import.meta.glob('../content/museo/salas/*.json', { eager: true, import: 'default' });
 const piezasModulos = import.meta.glob('../content/museo/piezas/*.json', { eager: true, import: 'default' });
@@ -111,6 +112,9 @@ function normalizarPieza(slug, d) {
     juego: texto(d.juego),
     descargable: Boolean(d.descargable),
     autores: lista(d.autores).filter((a) => a?.nombre),
+    materia: texto(d.materia),
+    docente: texto(d.docente),
+    anio: texto(String(d.anio ?? '')),
     fecha: texto(d.fecha),
     procedencia: texto(d.procedencia),
     creditos: lista(d.creditos).filter((c) => c?.nombre),
@@ -127,7 +131,7 @@ function normalizarPieza(slug, d) {
 const porOrden = (a, b) => a.orden - b.orden || a.titulo.localeCompare(b.titulo, 'es');
 
 export const config = {
-  nombre: 'Museo Virtual',
+  nombre: 'Producciones de estudiantes',
   bajada: '',
   descripcion: '',
   imagenPortada: '',
@@ -161,7 +165,10 @@ export const piezasDeSala = (slug) => piezas.filter((p) => p.sala === slug);
 export const portadaDeSala = (sala) =>
   sala.portada || piezasDeSala(sala.slug).find((p) => p.imagen)?.imagen || '';
 
-/** Relacionadas: las elegidas a mano y, si faltan, otras de la misma sala. */
+/** Formato legible de la pieza (para la ficha y las tarjetas). */
+export const formatoDe = (p) => tipoDe(p).label;
+
+/** Relacionadas: las elegidas a mano y, si faltan, otras del mismo eje temático. */
 export function relacionadasDe(pieza, max = 3) {
   const elegidas = pieza.relacionadas.map(getPieza).filter(Boolean);
   const resto = piezasDeSala(pieza.sala).filter(
@@ -197,9 +204,18 @@ export function urlEmbed(url) {
 /** Divide un texto en párrafos (línea en blanco = párrafo nuevo). */
 export const parrafos = (t = '') => t.split(/\n\s*\n/).map((x) => x.trim()).filter(Boolean);
 
-/** Línea corta de autoría para tarjetas: «Por …» o el primer crédito. */
+/** Nombres de autores y autoras: «Ana, Juan y Mayra»; si son muchos, «Ana, Juan y 3 más». */
+export function nombresDe(p, max = 3) {
+  const n = p.autores.map((a) => a.nombre);
+  if (!n.length) return '';
+  if (n.length === 1) return n[0];
+  if (n.length <= max) return `${n.slice(0, -1).join(', ')} y ${n[n.length - 1]}`;
+  return `${n.slice(0, max - 1).join(', ')} y ${n.length - max + 1} más`;
+}
+
+/** Línea corta de autoría para tarjetas: nombres o el primer crédito. */
 export function firmaDe(p) {
-  if (p.autores.length) return `Por ${p.autores.map((a) => a.nombre).join(', ')}`;
+  if (p.autores.length) return nombresDe(p);
   if (p.creditos.length) return `${p.creditos[0].rol}: ${p.creditos[0].nombre}`;
   return p.procedencia;
 }
@@ -213,3 +229,11 @@ export function detalleFormato(p) {
   if (esAudio(p.archivo)) return 'Audio';
   return '';
 }
+
+/* ---------- Vínculo con la Historia ---------- */
+
+/** Hitos de la cronología que enlazan esta producción. */
+export const hitosDe = (slug) => historiaData.filter((h) => (h.producciones || []).includes(slug));
+
+/** Producciones publicadas vinculadas a un hito. */
+export const produccionesDeHito = (hito) => (hito.producciones || []).map(getPieza).filter(Boolean);

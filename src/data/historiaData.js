@@ -1,5 +1,6 @@
 /**
- * MalvinizAR — Datos verificados de la Cronología Histórica
+ * MalvinizAR — Datos verificados de la Cronología Histórica.
+ * Cada hito puede enlazar producciones de estudiantes con el campo `producciones`.
  * Fuentes: Naciones Unidas, Ministerio de Relaciones Exteriores de Argentina,
  * Archivo General de la Nación, Ministerio de Defensa, Cruz Roja Internacional,
  * Constitución Nacional de 1994 y Programa Educación y Memoria.
@@ -14,6 +15,8 @@ export const historiaData = [
     resumen: 'Durante el siglo XVIII se establecieron asentamientos franceses y británicos en las Islas Malvinas. Francia fundó Port Louis en 1764 y Gran Bretaña estableció Port Egmont en 1765. Estos acontecimientos forman parte de los antecedentes de la historia política de las islas.',
     categoria: 'antecedentes',
     categoriaLabel: 'Antecedentes históricos',
+    // Producciones de estudiantes vinculadas a este hito (slugs de src/content/museo/piezas)
+    producciones: ['malvinas-1833-2025'],
     image: 'images/historia/1.jpg',
     imageAlt: 'Ilustración histórica y cartografía de los primeros asentamientos europeos en las Islas Malvinas del siglo XVIII',
     contexto: 'Durante el siglo XVIII, las potencias marítimas europeas intensificaron sus expediciones de reconocimiento en el Atlántico Sur y los pasos interoceánicos.',
@@ -44,6 +47,8 @@ export const historiaData = [
     resumen: 'En 1767, Francia transfirió a España su asentamiento en las islas. España pasó a administrar Puerto Soledad, en el marco de los acuerdos entre ambas coronas.',
     categoria: 'antecedentes',
     categoriaLabel: 'Antecedentes históricos',
+    // Producciones de estudiantes vinculadas a este hito (slugs de src/content/museo/piezas)
+    producciones: ['malvinas-1833-2025'],
     image: 'images/historia/2.jpg',
     imageAlt: 'Retrato de la administración colonial española en Puerto Soledad a partir de 1767',
     contexto: 'Tras los reclamos diplomáticos españoles basados en el principio de integridad territorial y los tratados vigentes, Francia reconoció los derechos de España sobre el archipiélago.',
@@ -74,6 +79,8 @@ export const historiaData = [
     resumen: 'El gobierno de Buenos Aires estableció la Comandancia Política y Militar de las Islas Malvinas y designó a Luis Vernet para ejercer esa función. Este hecho es un antecedente importante del reclamo argentino de soberanía.',
     categoria: 'antecedentes',
     categoriaLabel: 'Antecedentes históricos',
+    // Producciones de estudiantes vinculadas a este hito (slugs de src/content/museo/piezas)
+    producciones: ['malvinas-argentinas-causa-nacional', 'malvinas-1833-2025'],
     image: 'images/historia/3.jpg',
     imageAlt: 'Retrato de Luis Vernet y decreto de creación de la Comandancia Política y Militar de 1829',
     contexto: 'Tras consolidar su independencia, las Provincias Unidas del Río de la Plata continuaron ejerciendo soberanía pacífica y efectiva sobre los territorios y mares del sur.',
@@ -104,6 +111,8 @@ export const historiaData = [
     resumen: 'Fuerzas británicas llegaron a las islas a bordo de la corbeta HMS Clio y desplazaron a las autoridades argentinas. Parte de la población permaneció en las islas. Argentina continuó reclamando su soberanía por vías diplomáticas.',
     categoria: 'antecedentes',
     categoriaLabel: 'Antecedentes históricos',
+    // Producciones de estudiantes vinculadas a este hito (slugs de src/content/museo/piezas)
+    producciones: ['malvinas-1833-2025', 'soberania-una-construccion-permanente', 'malvinas-argentinas-causa-nacional'],
     image: 'images/historia/4.jpg',
     imageAlt: 'Representación histórica del desalojo forzado de las autoridades argentinas por la HMS Clio en 1833',
     contexto: 'En una época de expansión imperial británica por rutas comerciales estratégicas, Gran Bretaña envió una fuerza naval para tomar posesión del archipiélago.',
@@ -134,6 +143,8 @@ export const historiaData = [
     resumen: 'La Asamblea General de las Naciones Unidas reconoció la existencia de una disputa de soberanía entre Argentina y el Reino Unido e invitó a ambos países a negociar una solución pacífica. La resolución no adjudicó definitivamente la soberanía a ninguna de las partes.',
     categoria: 'diplomacia',
     categoriaLabel: 'Diplomacia y ONU',
+    // Producciones de estudiantes vinculadas a este hito (slugs de src/content/museo/piezas)
+    producciones: ['malvinas-1833-2025', 'soberania-una-construccion-permanente'],
     image: 'images/historia/5.jpg',
     imageAlt: 'Sesión plenaria de la Asamblea General de la ONU en la aprobación de la Resolución 2065',
     contexto: 'En el marco del proceso de descolonización mundial impulsado por la Declaración sobre la Concesión de la Independencia a los Países y Pueblos Coloniales (Resolución 1514).',
@@ -164,6 +175,8 @@ export const historiaData = [
     resumen: 'La guerra de Malvinas tuvo lugar durante la última dictadura cívico-militar argentina, iniciada en 1976. Comprender el contexto político del país es fundamental para estudiar las decisiones que llevaron al conflicto y sus consecuencias.',
     categoria: 'conflicto',
     categoriaLabel: 'Conflicto de 1982',
+    // Producciones de estudiantes vinculadas a este hito (slugs de src/content/museo/piezas)
+    producciones: ['malvinas-1833-2025', 'gauchos-desmuteados-one-sheet'],
     image: 'images/historia/6.jpg',
     imageAlt: 'Contexto social y político argentino de principios de 1982 durante el régimen de facto',
     contexto: 'Hacia principios de 1982, la dictadura cívico-militar atravesaba una profunda crisis económica, un fuerte aislamiento internacional y un creciente descontento popular y sindical.',
@@ -194,6 +207,8 @@ export const historiaData = [
     resumen: 'Las fuerzas argentinas desembarcaron en las islas y tomaron el control del territorio. Durante los enfrentamientos murió el capitán argentino Pedro Giachino. La operación marcó el comienzo de una nueva etapa del conflicto, que se extendió hasta junio de 1982.',
     categoria: 'conflicto',
     categoriaLabel: 'Conflicto de 1982',
+    // Producciones de estudiantes vinculadas a este hito (slugs de src/content/museo/piezas)
+    producciones: ['trivia-malvinizar', 'en-primera-persona', 'malvinas-1833-2025'],
     image: 'images/historia/7.jpg',
     imageAlt: 'Vehículos anfibios y tropas argentinas durante la Operación Rosario en la madrugada del 2 de abril de 1982',
     contexto: 'La fuerza de tareas conjunta argentina planificó un desembarco anfibio con órdenes estrictas de no causar bajas mortales en la guarnición militar británica ni en la población civil.',
@@ -225,6 +240,8 @@ export const historiaData = [
     categoria: 'conflicto',
     categoriaSecundaria: 'memoria',
     categoriaLabel: 'Conflicto de 1982 y memoria',
+    // Producciones de estudiantes vinculadas a este hito (slugs de src/content/museo/piezas)
+    producciones: ['hay-alguien-ahi-cap-1', 'dossier-hay-alguien-ahi', 'en-primera-persona'],
     image: 'images/historia/8.jpg',
     imageAlt: 'Cartas, abrigos y vivencias cotidianas de los soldados conscriptos en las posiciones de combate de Malvinas',
     contexto: 'Miles de jóvenes conscriptos, en su mayoría de las clases 1962 y 1963, fueron destinados a posiciones en las islas junto a oficiales, suboficiales y personal de sanidad naval y aérea.',
@@ -255,6 +272,8 @@ export const historiaData = [
     resumen: 'El crucero argentino ARA General Belgrano fue hundido durante la guerra. Murieron 323 tripulantes. Este acontecimiento fue uno de los episodios más trágicos del conflicto y debe abordarse con respeto y precisión histórica.',
     categoria: 'conflicto',
     categoriaLabel: 'Conflicto de 1982',
+    // Producciones de estudiantes vinculadas a este hito (slugs de src/content/museo/piezas)
+    producciones: ['verdad-o-silencio-trailer', 'astro-films-podcast-aviacion'],
     image: 'images/historia/9.jpg',
     imageAlt: 'Homenaje y registro histórico del Crucero ARA General Belgrano en navegación en el Atlántico Sur',
     contexto: 'Hacia principios de mayo se desarrollaban negociaciones de paz a través de mediaciones diplomáticas internacionales, como la propuesta peruana encabezada por el presidente Fernando Belaúnde Terry.',
@@ -285,6 +304,8 @@ export const historiaData = [
     resumen: 'Durante junio se desarrollaron intensos combates en las alturas próximas a Puerto Argentino, entre ellas Monte Longdon, Dos Hermanas, Harriet y Tumbledown. El 14 de junio se produjo la rendición de las fuerzas argentinas en las islas y finalizaron las principales operaciones de combate.',
     categoria: 'conflicto',
     categoriaLabel: 'Conflicto de 1982',
+    // Producciones de estudiantes vinculadas a este hito (slugs de src/content/museo/piezas)
+    producciones: ['astro-films-podcast-aviacion', 'en-primera-persona', 'trivia-malvinizar'],
     image: 'images/historia/10.jpg',
     imageAlt: 'Relieve y posiciones defensivas en los montes Longdon, Dos Hermanas y Tumbledown',
     contexto: 'Las fuerzas terrestres británicas, tras desembarcar en San Carlos, avanzaron hacia el este cercando las defensas argentinas apostadas en las colinas de roca que custodiaban el acceso a Puerto Argentino.',
@@ -315,6 +336,8 @@ export const historiaData = [
     resumen: 'Raúl Alfonsín asumió la presidencia el 10 de diciembre de 1983, marcando el retorno al gobierno democrático constitucional. La memoria de la guerra pasó a formar parte de la reflexión pública sobre la dictadura, la democracia y sus consecuencias.',
     categoria: 'memoria',
     categoriaLabel: 'Memoria y democracia',
+    // Producciones de estudiantes vinculadas a este hito (slugs de src/content/museo/piezas)
+    producciones: ['gauchos-desmuteados-one-sheet', 'malvinas-1833-2025'],
     image: 'images/historia/11.jpg',
     imageAlt: 'Asunción presidencial de Raúl Alfonsín el 10 de diciembre de 1983 restaurando el orden constitucional',
     contexto: 'El resultado de la guerra de Malvinas profundizó el derrumbe político y moral del régimen militar, abriendo camino a elecciones libres tras más de siete años de terrorismo de Estado.',
@@ -345,6 +368,8 @@ export const historiaData = [
     resumen: 'La reforma constitucional de 1994 incorporó la Cláusula Transitoria Primera, que establece el objetivo permanente e irrenunciable de recuperar el ejercicio pleno de la soberanía sobre las Islas Malvinas, Georgias del Sur y Sandwich del Sur y los espacios marítimos e insulares correspondientes, respetando el modo de vida de sus habitantes y conforme al derecho internacional.',
     categoria: 'soberania',
     categoriaLabel: 'Soberanía actual',
+    // Producciones de estudiantes vinculadas a este hito (slugs de src/content/museo/piezas)
+    producciones: ['argentina-pais-bicontinental', 'soberania-una-construccion-permanente'],
     image: 'images/historia/12.jpg',
     imageAlt: 'Convención Nacional Constituyente de Santa Fe y texto de la reforma constitucional de 1994',
     contexto: 'En la Convención Nacional Constituyente reunida en Santa Fe y Paraná, las distintas fuerzas políticas consensuaron fijar una postura de Estado obligatoria y unánime respecto a Malvinas.',
@@ -376,6 +401,8 @@ export const historiaData = [
     resumen: 'Argentina y el Reino Unido impulsaron un proyecto humanitario para identificar los restos de soldados argentinos sepultados en el Cementerio Argentino de Darwin. Los trabajos de campo comenzaron en 2017 con participación internacional y equipos especializados. El proyecto permitió avanzar en la identificación de soldados y en el acompañamiento a sus familias.',
     categoria: 'memoria',
     categoriaLabel: 'Memoria y democracia',
+    // Producciones de estudiantes vinculadas a este hito (slugs de src/content/museo/piezas)
+    producciones: ['gauchos-desmuteados-one-sheet', 'hay-alguien-ahi-cap-1'],
     image: 'images/historia/13.jpg',
     imageAlt: 'Cruz y placas del Cementerio Argentino de Darwin en el marco del Plan Proyecto Humanitario',
     contexto: 'Durante más de tres décadas, 122 soldados argentinos descansaban en el Cementerio de Darwin bajo tumbas que rezaban "Soldado argentino solo conocido por Dios", sin que sus familias supieran su lugar exacto de descanso.',
@@ -406,6 +433,8 @@ export const historiaData = [
     resumen: 'El reclamo argentino de soberanía continúa por vías diplomáticas y pacíficas. La investigación histórica, la memoria de quienes participaron en la guerra, el conocimiento de la geografía y la biodiversidad y el trabajo científico contribuyen a comprender la importancia de las islas en el presente.',
     categoria: 'soberania',
     categoriaLabel: 'Soberanía actual',
+    // Producciones de estudiantes vinculadas a este hito (slugs de src/content/museo/piezas)
+    producciones: ['cartel-puerto-argentino-unpilar', 'malvinas-siempre-cerca', 'argentina-pais-bicontinental', 'malvinizar-landing-page'],
     image: 'images/historia/14.jpg',
     imageAlt: 'Investigación oceanográfica, paisaje natural malvinense y reclamo diplomático contemporáneo',
     contexto: 'El archipiélago malvinense y los espacios marítimos circundantes poseen un inmenso valor estratégico, ecológico y científico en la conexión entre los océanos Atlántico y Pacífico y el continente Antártico.',

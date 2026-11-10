@@ -1,0 +1,18 @@
+{
+  "titulo": "¿Cómo nace MalvinizAR?",
+  "texto": "MalvinizAR nace como una iniciativa de estudiantes de la carrera de Comunicación Digital, con el objetivo de crear un espacio digital educativo que reúna testimonios, materiales históricos y recursos interactivos para acercar la historia de Malvinas a las nuevas generaciones.",
+  "fotos": [
+    {
+      "imagen": "/inicio/estudiantes-cartel-unpilar.jpg",
+      "alt": "Estudiantes y docentes de la UNPILAR junto al cartel «Islas Malvinas — A Puerto Argentino 1920 km» en el campus de la universidad.",
+      "pie": "Estudiantes y docentes en la colocación del cartel «A Puerto Argentino, 1920 km», campus de la UNPILAR.",
+      "foco": "50% 60%"
+    },
+    {
+      "imagen": "/inicio/malvinas-siempre-cerca-foto.jpg",
+      "alt": "Siluetas de las Islas Malvinas sobre postes celestes y blancos, en un parque de Pilar.",
+      "pie": "Malvinas: siempre cerca. Fotografía de la convocatoria de la UNPILAR.",
+      "foco": "50% 40%"
+    }
+  ]
+}

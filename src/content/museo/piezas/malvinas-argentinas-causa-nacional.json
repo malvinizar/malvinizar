@@ -32,14 +32,12 @@
       "rol": "Alumna"
     }
   ],
+  "materia": "Seminario Malvinas Argentinas",
+  "docente": "Mariano Fernández Ameghino",
+  "anio": "2026",
   "fecha": "",
   "procedencia": "",
-  "creditos": [
-    {
-      "rol": "Docente",
-      "nombre": "Mariano Fernandez Ameghino"
-    }
-  ],
+  "creditos": [],
   "creditoImagen": "",
   "fuentes": [],
   "derechos": "",

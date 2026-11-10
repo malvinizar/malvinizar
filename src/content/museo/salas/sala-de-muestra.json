@@ -8,6 +8,6 @@
   "periodo": "[Ejemplo] Del 1 al 30 de noviembre",
   "orden": 99,
   "destacada": false,
-  "publicado": true,
+  "publicado": false,
   "demo": true
 }

@@ -1,94 +1,184 @@
-import { Gamepad2, Sparkles, MapPin, Trophy, Shield, ExternalLink } from 'lucide-react';
-import { GAME_URL } from '../config/site';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Play, Trophy, ExternalLink, ArrowRight } from 'lucide-react';
+import { GAME_URL, RANKING_URL } from '../config/site';
+import { getPieza } from '../producciones/datos';
+import { useMetaPagina } from '../producciones/componentes';
+import {
+  Cinta,
+  Logotipo,
+  LogoUnpilar,
+  SolDeMayo,
+  FondoSol,
+  CATEGORIAS_JUEGO,
+  MedallonCategoria,
+} from '../components/marca/Marca';
+
+const PASOS = [
+  { n: 1, titulo: 'Girá la ruleta', texto: 'Tocá el Sol de Mayo y mirá en qué categoría cae.' },
+  { n: 2, titulo: 'Respondé', texto: 'Elegí una de las cuatro opciones. Después ves la explicación y la fuente de cada respuesta.' },
+  { n: 3, titulo: 'Sumá puntos', texto: 'Las preguntas más difíciles valen más y las rachas multiplican tu puntaje.' },
+  { n: 4, titulo: 'Llená el Malvinómetro', texto: 'Cada acierto lo hace subir. ¿Hasta qué nivel llegás?' },
+];
+
+const NIVELES = ['Aprendiz', 'Conocedor', 'Memorioso', 'Guardián de la Memoria', 'Malvinizador'];
+
+const PUNTOS = [
+  { dificultad: 'Fácil', puntos: 100 },
+  { dificultad: 'Media', puntos: 200 },
+  { dificultad: 'Difícil', puntos: 300 },
+  { dificultad: 'Experto', puntos: 500 },
+];
+
+/** Pantalla del juego dentro de la página: se carga recién al tocar «Jugar acá». */
+function PantallaJuego() {
+  const [jugando, setJugando] = useState(false);
+  return (
+    <div className="pantalla-juego">
+      <div className="pantalla-juego-marco">
+        {jugando ? (
+          <iframe src={GAME_URL} title="MalvinizAR · La trivia de Malvinas" allow="fullscreen; autoplay" allowFullScreen />
+        ) : (
+          <button type="button" className="pantalla-juego-portada" onClick={() => setJugando(true)}>
+            <SolDeMayo className="pantalla-juego-sol" />
+            <Logotipo tamano="md" />
+            <Cinta as="span" className="pantalla-juego-cinta">La trivia de Malvinas</Cinta>
+            <span className="btn3d btn3d--verde pantalla-juego-boton">
+              <Play size={18} fill="currentColor" aria-hidden="true" /> Jugar acá
+            </span>
+          </button>
+        )}
+      </div>
+    </div>
+  );
+}
 
 export default function Juego() {
+  useMetaPagina('El juego', 'MalvinizAR · La trivia de Malvinas: girá la ruleta, respondé y llená el Malvinómetro.');
+  const pieza = getPieza('trivia-malvinizar');
+  const equipo = pieza?.autores.map((a) => a.nombre) || [];
+
   return (
-    <div className="section">
-      <div className="container container-narrow">
-        <div className="section-header">
-          <span className="section-eyebrow">Gamificación Pedagógica</span>
-          <h1 className="section-title">Malvinas: La Aventura de la Soberanía</h1>
-          <p className="section-subtitle">
-            Una experiencia interactiva y lúdica diseñada para aprender sobre geografía, historia y fauna malvinense a través de misiones y desafíos formativos.
-          </p>
-        </div>
-
-        <div style={{ 
-          background: 'linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%)', 
-          color: 'var(--white)', 
-          borderRadius: 'var(--radius-lg)', 
-          padding: '48px 36px',
-          textAlign: 'center',
-          boxShadow: 'var(--shadow-lg)',
-          marginBottom: '40px',
-          border: '1px solid rgba(149, 211, 228, 0.2)'
-        }}>
-          <div style={{ 
-            width: '72px', 
-            height: '72px', 
-            borderRadius: '50%', 
-            backgroundColor: 'var(--primary)', 
-            color: 'var(--white)', 
-            display: 'flex', 
-            alignItems: 'center', 
-            justifyContent: 'center',
-            margin: '0 auto 24px',
-            boxShadow: '0 0 25px rgba(3, 170, 211, 0.6)'
-          }}>
-            <Gamepad2 size={36} />
-          </div>
-
-          <h2 style={{ color: 'var(--white)', fontSize: '2rem', marginBottom: '12px' }}>
-            Explorá el Archipiélago
-          </h2>
-          <p style={{ color: '#D1D5DB', maxWidth: '580px', margin: '0 auto 28px', lineHeight: 1.6 }}>
-            Ponete en la piel de un joven historiador que debe recuperar diarios perdidos, descifrar mensajes de comunicaciones de época y responder trivias sobre la biodiversidad de las islas.
-          </p>
-
-          <a 
-            href={GAME_URL} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="btn btn-primary btn-lg"
-            style={{ display: 'inline-flex', gap: '10px' }}
-          >
-            <span>Iniciar Juego Interactivo</span>
-            <ExternalLink size={18} />
-          </a>
-        </div>
-
-        <div className="grid-3">
-          <div className="card">
-            <div className="card-icon">
-              <MapPin size={24} />
+    <div className="tema-juego">
+      <FondoSol />
+      <section className="juego-portada">
+        <div className="contenedor juego-portada-grid">
+          <div className="juego-portada-texto">
+            <div className="juego-logo">
+              <SolDeMayo className="juego-logo-sol" />
+              <Logotipo tamano="xl" as="h1" />
+              <Cinta as="p" className="juego-logo-cinta">La trivia de Malvinas</Cinta>
             </div>
-            <h3 className="card-title">Misiones Geográficas</h3>
-            <p className="card-text">
-              Reconocé los principales accidentes costeros, estrechos y elevaciones como Monte Longdon y Dos Hermanas.
+            <p className="juego-bajada">
+              Un juego de preguntas para aprender sobre Malvinas con la dinámica de una ruleta: historia, música, cine y
+              fútbol, en partidas de 10 preguntas.
+            </p>
+            <div className="juego-acciones">
+              <a href={GAME_URL} target="_blank" rel="noopener noreferrer" className="btn3d btn3d--xl btn3d--pulso">
+                <Play size={26} fill="currentColor" aria-hidden="true" /> ¡Jugar!
+              </a>
+              <a href={RANKING_URL} target="_blank" rel="noopener noreferrer" className="btn3d btn3d--lg btn3d--celeste">
+                <Trophy size={20} aria-hidden="true" /> Ranking
+              </a>
+            </div>
+            <p className="juego-nota">
+              Se abre en una pestaña nueva. Funciona en el celular y en la computadora.
             </p>
           </div>
+          <PantallaJuego />
+        </div>
+      </section>
 
-          <div className="card">
-            <div className="card-icon">
-              <Shield size={24} />
-            </div>
-            <h3 className="card-title">Trivias de Historia</h3>
-            <p className="card-text">
-              Completá desafíos sobre las resoluciones de la ONU, la Carta de Naciones Unidas y los héroes patrios.
+      <section className="seccion">
+        <div className="contenedor juego-grid">
+          <article className="tarjeta-crema juego-que-es">
+            <Cinta as="h2" className="tarjeta-crema-cinta">¿De qué se trata?</Cinta>
+            <p>
+              <strong>MalvinizAR · La trivia de Malvinas</strong> es un juego educativo pensado para estudiantes de la
+              escuela secundaria. Toma la dinámica de los juegos de preguntas por categorías y la pone al servicio de la
+              memoria: cada respuesta viene con una explicación breve y la fuente de donde sale el dato.
             </p>
+            <p>
+              Lo desarrollaron estudiantes de la carrera de Comunicación Digital de la Universidad Nacional de Pilar como
+              parte de su cursada.
+            </p>
+            <ul className="juego-categorias" aria-label="Categorías">
+              {CATEGORIAS_JUEGO.map((c) => (
+                <li key={c.id}><MedallonCategoria categoria={c} /></li>
+              ))}
+            </ul>
+          </article>
+
+          <article className="tarjeta-crema juego-como">
+            <Cinta as="h2" className="tarjeta-crema-cinta">¿Cómo se juega?</Cinta>
+            <ol className="pasos">
+              {PASOS.map((p) => (
+                <li key={p.n}>
+                  <span className="pasos-numero" aria-hidden="true">{p.n}</span>
+                  <span>
+                    <strong>{p.titulo}</strong>
+                    <span>{p.texto}</span>
+                  </span>
+                </li>
+              ))}
+            </ol>
+          </article>
+        </div>
+      </section>
+
+      <section className="seccion seccion--suave">
+        <div className="contenedor juego-grid">
+          <article className="panel-juego">
+            <h2 className="titulo-juego titulo-juego--md">El Malvinómetro</h2>
+            <p>Cada acierto lo hace subir. Según hasta dónde llegues, terminás la partida con uno de estos niveles:</p>
+            <ol className="malvinometro">
+              {NIVELES.map((n, i) => (
+                <li key={n} style={{ '--nivel': i }}>
+                  <span>{n}</span>
+                </li>
+              ))}
+            </ol>
+          </article>
+
+          <article className="panel-juego">
+            <h2 className="titulo-juego titulo-juego--md">Puntaje y rachas</h2>
+            <dl className="puntos">
+              {PUNTOS.map((p) => (
+                <div key={p.dificultad}>
+                  <dt>{p.dificultad}</dt>
+                  <dd>{p.puntos} pts</dd>
+                </div>
+              ))}
+            </dl>
+            <p className="puntos-racha">
+              <strong>3 aciertos seguidos:</strong> ×1,5 · <strong>5 o más:</strong> ×2
+            </p>
+            <p>
+              Al terminar podés guardar tu puntaje en el <strong>ranking</strong> y filtrarlo por escuela para comparar con
+              tu curso.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section className="seccion">
+        <div className="contenedor creditos-juego">
+          <div>
+            <p className="sobretitulo-juego">Equipo</p>
+            <p className="creditos-juego-nombres">{equipo.join(' · ')}</p>
+            <p>Comunicación Digital · Universidad Nacional de Pilar · 2026</p>
           </div>
-
-          <div className="card">
-            <div className="card-icon">
-              <Trophy size={24} />
-            </div>
-            <h3 className="card-title">Insignias y Logros</h3>
-            <p className="card-text">
-              Desbloqueá medallas virtuales para certificar tus conocimientos ante tus docentes y compañeros de curso.
-            </p>
+          <LogoUnpilar variante="blanco" />
+          <div className="creditos-juego-enlaces">
+            <Link to="/producciones/trivia-malvinizar" className="enlace-juego">
+              Ficha de la producción <ArrowRight size={18} aria-hidden="true" />
+            </Link>
+            <a href={GAME_URL} target="_blank" rel="noopener noreferrer" className="enlace-juego">
+              Abrir el juego <ExternalLink size={16} aria-hidden="true" />
+            </a>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-# Panel de administración del Museo Virtual (Pages CMS — https://app.pagescms.org)
+# Panel de administración de MalvinizAR (Pages CMS — https://app.pagescms.org)
 # Ingresá con tu cuenta de GitHub, elegí el repo malvinizar/malvinizar y editá desde formularios.
 # Cada vez que guardás, Pages CMS hace un commit y GitHub Actions vuelve a publicar el sitio solo.
 
@@ -8,25 +8,40 @@ media:
   rename: safe
 
 content:
+  - name: inicio
+    label: "Inicio · Slider"
+    type: file
+    path: src/content/inicio.json
+    format: json
+    fields:
+      - { name: titulo, label: Título, type: string }
+      - { name: texto, label: Texto, type: text }
+      - name: fotos
+        label: Fotos del slider (fotos reales de estudiantes)
+        type: object
+        list: true
+        fields:
+          - { name: imagen, label: Foto, type: image }
+          - { name: alt, label: Texto alternativo, type: string }
+          - { name: pie, label: Epígrafe, type: string }
+          - { name: foco, label: "Encuadre (por ejemplo 50% 60%)", type: string }
+
   - name: museo-config
-    label: "Museo · Portada"
+    label: "Producciones · Opciones"
     type: file
     path: src/content/museo/config.json
     format: json
     fields:
-      - { name: nombre, label: Nombre del museo, type: string }
+      - { name: nombre, label: Título de la sección, type: string }
       - { name: bajada, label: Bajada, type: string }
       - { name: descripcion, label: Descripción, type: text }
-      - { name: imagenPortada, label: Imagen de portada, type: image }
-      - { name: imagenPortadaAlt, label: Texto alternativo de la portada, type: string }
-      - { name: invitacion, label: Texto de invitación al recorrido, type: text }
       - name: mostrarPendientes
-        label: Mostrar «Dato a completar» en las fichas
-        description: Útil mientras se carga la información. Desactivalo antes de difundir el museo.
+        label: Mostrar «A completar» en las fichas
+        description: Útil mientras se carga la información. Desactivalo antes de difundir el sitio.
         type: boolean
 
   - name: salas
-    label: "Museo · Salas"
+    label: "Producciones · Temas"
     type: collection
     path: src/content/museo/salas
     format: json
@@ -46,13 +61,13 @@ content:
         type: select
         options: { values: [permanente, temporal] }
       - { name: periodo, label: "Período (exposiciones temporales)", type: string }
-      - { name: orden, label: Orden en el recorrido, type: number }
+      - { name: orden, label: Orden en los filtros, type: number }
       - { name: destacada, label: Destacada en la portada, type: boolean }
       - { name: publicado, label: Publicado, type: boolean, default: true }
       - { name: demo, label: Contenido demostrativo, type: boolean }
 
   - name: piezas
-    label: "Museo · Piezas"
+    label: "Producciones"
     type: collection
     path: src/content/museo/piezas
     format: json
@@ -70,11 +85,11 @@ content:
         options:
           values: [juego, fotografia, imagen, video, audio, presentacion, documento, infografia, otro]
       - name: sala
-        label: Sala
+        label: Tema
         type: reference
         options: { collection: salas, value: "{path}", label: "{titulo}" }
-      - { name: orden, label: Orden dentro de la sala, type: number }
-      - { name: destacada, label: Destacada en la portada, type: boolean }
+      - { name: orden, label: Orden dentro del tema, type: number }
+      - { name: destacada, label: Destacada en el Inicio, type: boolean }
       - { name: publicado, label: Publicado, type: boolean, default: true }
       - { name: demo, label: Contenido demostrativo, type: boolean }
       - { name: resumen, label: Resumen (una o dos líneas), type: text }
@@ -91,7 +106,7 @@ content:
       - { name: archivo, label: "Archivo (audio, video o PDF)", type: file }
       - { name: paginas, label: "Páginas de la presentación o documento (imágenes en orden)", type: image, options: { multiple: { max: 200 } } }
       - { name: videoExterno, label: "Video externo (link de YouTube o Vimeo)", type: string }
-      - { name: juego, label: "Juego o experiencia interactiva (link para jugar dentro del museo)", type: string }
+      - { name: juego, label: "Juego o experiencia interactiva (link para jugar dentro de la ficha)", type: string }
       - { name: descargable, label: Permitir descarga, type: boolean }
       - name: autores
         label: Autores
@@ -100,6 +115,9 @@ content:
         fields:
           - { name: nombre, label: Nombre, type: string }
           - { name: rol, label: Rol, type: string }
+      - { name: materia, label: Materia, type: string }
+      - { name: docente, label: Docente, type: string }
+      - { name: anio, label: Año, type: string }
       - { name: fecha, label: "Fecha de creación o publicación", type: string }
       - { name: procedencia, label: "Institución, organización o archivo de procedencia", type: string }
       - name: creditos

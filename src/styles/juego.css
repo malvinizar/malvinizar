@@ -1,0 +1,981 @@
+/* =========================================================
+   Identidad del juego (malvinizar/malvinizados)
+   Se usa SOLO en la sección Juego y en las piezas que la anuncian
+   (acceso del Inicio y portada de la trivia). El resto del sitio
+   sigue la estética institucional de la UNPILAR (index.css).
+   Paleta: azul marino, crema con borde dorado, oro del Sol de Mayo
+   y celeste y blanco. Tipografías: Lilita One + Nunito.
+   ========================================================= */
+
+:root {
+  /* Fondo */
+  --navy-950: #0a1a3a;
+  --navy-900: #0f2550;
+  --navy-800: #17346a;
+  --navy-700: #1f4687;
+  --navy-600: #2b5aa6;
+
+  /* Tarjetas */
+  --crema: #fbf0d9;
+  --crema-200: #f3e2bd;
+  --crema-borde: #d9b36a;
+  --crema-canto: #b98a3e;
+  --tinta: #4a2f14;
+  --tinta-suave: #7a5a36;
+
+  /* Oro / Sol de Mayo */
+  --oro-claro: #ffe07a;
+  --oro: #f5b921;
+  --oro-oscuro: #c47f08;
+  --oro-tinta: #3a1f05;
+
+  /* Celeste (cintas) */
+  --celeste-claro: #d8f0fd;
+  --celeste: #7ec8f0;
+  --celeste-oscuro: #3b8fc4;
+
+  /* Categorías */
+  --cat-historia: #3fa9f5;
+  --cat-musica: #8e5bd9;
+  --cat-cine: #e8483b;
+  --cat-futbol: #2db34a;
+
+  --juego-texto-2: #d6e2f5;
+  --juego-texto-3: #a9bcdc;
+  --juego-linea: rgba(216, 240, 253, 0.16);
+  --fuente-juego: 'Lilita One', 'Arial Rounded MT Bold', system-ui, sans-serif;
+  --fuente-juego-texto: 'Nunito', system-ui, sans-serif;
+  --radio-juego: 1.1rem;
+  --radio-juego-lg: 1.75rem;
+}
+
+.tema-juego {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--navy-900);
+  color: #fff;
+  font-family: var(--fuente-juego-texto);
+}
+
+.tema-juego .seccion--suave {
+  background: linear-gradient(180deg, rgba(10, 26, 58, 0) 0%, rgba(10, 26, 58, 0.55) 18%, rgba(10, 26, 58, 0.55) 82%, rgba(10, 26, 58, 0) 100%);
+}
+
+.tema-juego .sobretitulo-juego {
+  font-family: var(--fuente-juego);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.95rem;
+  color: var(--oro-claro);
+  margin-bottom: 6px;
+}
+
+.tema-juego .enlace-juego {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 800;
+  color: var(--celeste);
+  text-decoration: none;
+}
+
+.tema-juego .enlace-juego:hover {
+  color: var(--celeste-claro);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* ---------- Fondo del juego ---------- */
+
+.fondo-sol {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  background: var(--navy-900);
+}
+
+.fondo-sol-rayos {
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  width: 220vmax;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  opacity: 0.08;
+  background: repeating-conic-gradient(from 0deg, #fff 0deg 7deg, transparent 7deg 18deg);
+  -webkit-mask-image: radial-gradient(circle, #000 0%, #000 22%, transparent 58%);
+  mask-image: radial-gradient(circle, #000 0%, #000 22%, transparent 58%);
+  animation: girar 140s linear infinite;
+}
+
+.fondo-sol-brillo {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(70% 50% at 50% 28%, rgba(80, 140, 230, 0.45) 0%, rgba(31, 70, 135, 0.3) 40%, transparent 75%);
+}
+
+.fondo-sol-vineta {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(120% 90% at 50% 40%, transparent 55%, rgba(5, 14, 35, 0.7) 100%);
+}
+
+@keyframes girar {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+
+/* ---------- Tipografía de marca ---------- */
+
+.logotipo {
+  font-family: var(--fuente-juego);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  color: var(--oro-claro);
+  -webkit-text-stroke: var(--trazo, 5px) var(--oro-tinta);
+  paint-order: stroke fill;
+  text-shadow:
+    0 var(--caida, 3px) 0 var(--oro-tinta),
+    0 calc(var(--caida, 3px) * 2) 14px rgba(0, 0, 0, 0.45);
+  white-space: nowrap;
+}
+
+.logotipo-ar {
+  color: var(--celeste-claro);
+}
+
+.logotipo--sm {
+  font-size: 1.7rem;
+  --trazo: 4px;
+  --caida: 2px;
+}
+
+.logotipo--md {
+  font-size: clamp(2.4rem, 7vw, 3.2rem);
+  --trazo: 6px;
+  --caida: 4px;
+}
+
+.logotipo--lg {
+  font-size: clamp(2.6rem, 6vw, 3.6rem);
+  --trazo: 7px;
+  --caida: 4px;
+}
+
+.logotipo--xl {
+  font-size: clamp(3.2rem, 9vw, 5.6rem);
+  --trazo: 9px;
+  --caida: 6px;
+}
+
+.titulo-juego {
+  font-family: var(--fuente-juego);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  color: #fff;
+  -webkit-text-stroke: var(--trazo, 5px) var(--navy-950);
+  paint-order: stroke fill;
+  text-shadow: 0 var(--caida, 3px) 0 var(--navy-950);
+  text-wrap: balance;
+}
+
+.titulo-juego--xl {
+  font-size: clamp(2.5rem, 6vw, 4.4rem);
+  --trazo: 7px;
+  --caida: 4px;
+}
+
+.titulo-juego--lg {
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  --trazo: 6px;
+  --caida: 4px;
+}
+
+.titulo-juego--md {
+  font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+  --trazo: 5px;
+  --caida: 3px;
+}
+
+
+
+/* ---------- Cinta ---------- */
+
+.cinta {
+  position: relative;
+  width: max-content;
+  min-width: 15rem;
+  max-width: 100%;
+  height: 3rem;
+  filter: drop-shadow(0 4px 0 rgba(0, 0, 0, 0.25));
+}
+
+.cinta svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.cinta-texto {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 3.2rem 0.25rem;
+  font-family: var(--fuente-juego);
+  font-weight: 400;
+  font-size: clamp(0.85rem, 2.4vw, 1.05rem);
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--navy-900);
+  white-space: nowrap;
+}
+
+.cinta--dorada .cinta-texto {
+  color: var(--oro-tinta);
+}
+
+
+/* ---------- Botones 3D (iguales a los del juego) ---------- */
+
+.btn3d {
+  --cara-clara: #ffe680;
+  --cara: #f8c21c;
+  --canto: #b9760a;
+  --etiqueta: #6a2c00;
+  --etiqueta-sombra: rgba(255, 255, 255, 0.45);
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 3rem;
+  padding: 0 1.4rem;
+  border-radius: 1.1rem;
+  border: 3px solid var(--canto);
+  background: linear-gradient(180deg, var(--cara-clara) 0%, var(--cara) 55%);
+  color: var(--etiqueta);
+  font-family: var(--fuente-juego);
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  text-shadow: 0 2px 0 var(--etiqueta-sombra);
+  white-space: nowrap;
+  box-shadow:
+    0 6px 0 var(--canto),
+    0 12px 22px -8px rgba(0, 0, 0, 0.55),
+    inset 0 2px 0 rgba(255, 255, 255, 0.55);
+  transition:
+    transform 90ms ease-out,
+    box-shadow 90ms ease-out,
+    filter 150ms ease-out;
+  user-select: none;
+  overflow: hidden;
+}
+
+.btn3d::before {
+  content: '';
+  position: absolute;
+  inset: 3px 8px auto 8px;
+  height: 38%;
+  border-radius: 0.8rem 0.8rem 1.4rem 1.4rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0));
+  pointer-events: none;
+}
+
+.btn3d > * {
+  position: relative;
+}
+
+.btn3d:hover {
+  filter: brightness(1.06);
+  transform: translateY(-1px);
+}
+
+.btn3d:active {
+  transform: translateY(5px);
+  box-shadow:
+    0 1px 0 var(--canto),
+    0 4px 10px -6px rgba(0, 0, 0, 0.55),
+    inset 0 2px 0 rgba(255, 255, 255, 0.4);
+}
+
+.btn3d:focus-visible {
+  outline: 4px solid #fff;
+  outline-offset: 4px;
+}
+
+.btn3d--celeste {
+  --cara-clara: #c9ecff;
+  --cara: #6fc3f2;
+  --canto: #2f7fb5;
+  --etiqueta: #0f2f5c;
+}
+
+.btn3d--verde {
+  --cara-clara: #8ee68d;
+  --cara: #3cc04f;
+  --canto: #1f7d2f;
+  --etiqueta: #fff;
+  --etiqueta-sombra: rgba(10, 60, 20, 0.6);
+}
+
+.btn3d--crema {
+  --cara-clara: #fffaf0;
+  --cara: #f1ddb3;
+  --canto: #b98a3e;
+  --etiqueta: var(--tinta);
+}
+
+.btn3d--sm {
+  min-height: 2.5rem;
+  padding: 0 1rem;
+  font-size: 0.95rem;
+  border-radius: 0.9rem;
+  box-shadow:
+    0 4px 0 var(--canto),
+    0 8px 16px -8px rgba(0, 0, 0, 0.55),
+    inset 0 2px 0 rgba(255, 255, 255, 0.55);
+}
+
+.btn3d--lg {
+  min-height: 3.5rem;
+  padding: 0 1.7rem;
+  font-size: 1.25rem;
+}
+
+.btn3d--xl {
+  min-height: 4.5rem;
+  padding: 0 2.4rem;
+  font-size: 2rem;
+  border-radius: 1.3rem;
+}
+
+.btn3d--pulso {
+  animation: pulso 1.8s ease-in-out infinite;
+}
+
+@keyframes pulso {
+  0%,
+  100% {
+    scale: 1;
+  }
+  50% {
+    scale: 1.04;
+  }
+}
+
+
+/* ---------- Tarjeta crema ---------- */
+
+.tarjeta-crema {
+  position: relative;
+  border-radius: var(--radio-juego-lg);
+  background: radial-gradient(120% 70% at 50% 0%, #fffaf0 0%, var(--crema) 55%, var(--crema-200) 100%);
+  border: 4px solid var(--crema-borde);
+  box-shadow:
+    0 8px 0 var(--crema-canto),
+    0 26px 40px -14px rgba(0, 0, 0, 0.65),
+    inset 0 0 0 3px rgba(255, 255, 255, 0.55);
+  color: var(--tinta);
+  padding: clamp(22px, 3vw, 34px);
+}
+
+.tarjeta-crema a {
+  color: var(--navy-700);
+  font-weight: 800;
+}
+
+.tarjeta-crema-cinta {
+  margin: calc(-1 * clamp(22px, 3vw, 34px) - 28px) auto 18px;
+}
+
+
+/* ---------- Acceso al juego (Inicio) ---------- */
+
+.acceso--juego {
+  background:
+    radial-gradient(80% 60% at 50% 30%, rgba(80, 140, 230, 0.55) 0%, rgba(31, 70, 135, 0.2) 55%, transparent 80%),
+    var(--navy-800);
+}
+
+.acceso--juego::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 34%;
+  width: 180%;
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  background: repeating-conic-gradient(from 0deg, #fff 0deg 7deg, transparent 7deg 18deg);
+  opacity: 0.1;
+  -webkit-mask-image: radial-gradient(circle, #000 0%, transparent 55%);
+  mask-image: radial-gradient(circle, #000 0%, transparent 55%);
+  pointer-events: none;
+}
+
+.acceso-juego-logo {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 72px 20px 12px;
+}
+
+.acceso-juego-sol {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  translate: -50% 0;
+  width: 150px;
+  height: 150px;
+  filter: drop-shadow(0 0 28px rgba(255, 200, 60, 0.5));
+  animation: girar-simple 60s linear infinite;
+}
+
+@keyframes girar-simple {
+  to {
+    rotate: 360deg;
+  }
+}
+
+.acceso-juego-logo .logotipo {
+  position: relative;
+}
+
+.acceso-juego-cinta {
+  margin-top: 6px;
+}
+
+.acceso-medallones {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  padding: 12px 20px 8px;
+}
+
+.medallon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.medallon-circulo {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  border: 4px solid var(--crema);
+  color: #fff;
+}
+
+.medallon-circulo svg {
+  width: 32px;
+  height: 32px;
+  filter: drop-shadow(0 2px 0 rgba(0, 0, 0, 0.25));
+}
+
+.medallon-nombre {
+  font-family: var(--fuente-juego);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #fff;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.5);
+}
+
+
+/* Portada dibujada de la trivia */
+.portada-trivia {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 18%;
+  overflow: hidden;
+  background:
+    radial-gradient(70% 60% at 50% 35%, rgba(80, 140, 230, 0.6) 0%, rgba(31, 70, 135, 0.3) 45%, transparent 80%),
+    var(--navy-900);
+  container-type: inline-size;
+}
+
+.portada-trivia::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 35%;
+  width: 260%;
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  background: repeating-conic-gradient(from 0deg, #fff 0deg 7deg, transparent 7deg 18deg);
+  opacity: 0.1;
+  -webkit-mask-image: radial-gradient(circle, #000 0%, transparent 55%);
+  mask-image: radial-gradient(circle, #000 0%, transparent 55%);
+}
+
+.portada-trivia-sol {
+  position: absolute;
+  top: 6%;
+  left: 50%;
+  translate: -50% 0;
+  width: 42%;
+  aspect-ratio: 1;
+  height: auto;
+  filter: drop-shadow(0 0 20px rgba(255, 200, 60, 0.5));
+}
+
+.portada-trivia .logotipo {
+  position: relative;
+  font-size: clamp(1.4rem, 15cqi, 4rem);
+  --trazo: clamp(3px, 1.6cqi, 8px);
+}
+
+.portada-trivia-cinta {
+  min-width: 0;
+  width: 70%;
+  height: clamp(1.6rem, 11cqi, 3rem);
+}
+
+.portada-trivia-cinta .cinta-texto {
+  font-size: clamp(0.55rem, 3.6cqi, 1rem);
+  padding: 0 14% 0.15rem;
+}
+
+
+/* ---------- Juego ---------- */
+
+.juego-portada {
+  position: relative;
+  padding: clamp(40px, 6vw, 72px) 0 clamp(48px, 6vw, 80px);
+}
+
+.juego-portada-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.juego-portada-texto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.juego-logo {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: clamp(80px, 10vw, 120px);
+}
+
+.juego-logo-sol {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  translate: -50% 0;
+  width: clamp(160px, 20vw, 220px);
+  height: clamp(160px, 20vw, 220px);
+  filter: drop-shadow(0 0 28px rgba(255, 200, 60, 0.55));
+  animation: girar-simple 60s linear infinite;
+}
+
+.juego-logo .logotipo {
+  position: relative;
+}
+
+.juego-logo-cinta {
+  margin-top: 4px;
+  min-width: 19rem;
+}
+
+.juego-bajada {
+  max-width: 46ch;
+  margin-top: 26px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--juego-texto-2);
+}
+
+.juego-acciones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  margin-top: 30px;
+}
+
+.juego-nota {
+  margin-top: 18px;
+  font-size: 0.88rem;
+  color: var(--juego-texto-3);
+}
+
+.pantalla-juego {
+  display: flex;
+  justify-content: center;
+}
+
+.pantalla-juego-marco {
+  position: relative;
+  width: min(100%, 380px);
+  aspect-ratio: 9 / 17;
+  border-radius: 36px;
+  padding: 12px;
+  background: linear-gradient(160deg, #24365e, #0a1530);
+  border: 3px solid var(--crema-borde);
+  box-shadow:
+    0 10px 0 var(--crema-canto),
+    0 40px 60px -20px rgba(0, 0, 0, 0.75);
+}
+
+.pantalla-juego-marco iframe,
+.pantalla-juego-portada {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 26px;
+  overflow: hidden;
+  background: var(--navy-900);
+}
+
+.pantalla-juego-portada {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background:
+    radial-gradient(70% 50% at 50% 34%, rgba(80, 140, 230, 0.6) 0%, rgba(31, 70, 135, 0.3) 45%, transparent 80%),
+    var(--navy-900);
+}
+
+.pantalla-juego-portada::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 34%;
+  width: 260%;
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  background: repeating-conic-gradient(from 0deg, #fff 0deg 7deg, transparent 7deg 18deg);
+  opacity: 0.1;
+  -webkit-mask-image: radial-gradient(circle, #000 0%, transparent 55%);
+  mask-image: radial-gradient(circle, #000 0%, transparent 55%);
+}
+
+.pantalla-juego-sol {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  margin-bottom: -46px;
+  filter: drop-shadow(0 0 24px rgba(255, 200, 60, 0.55));
+}
+
+.pantalla-juego-portada .logotipo {
+  position: relative;
+  font-size: 2.6rem;
+}
+
+.pantalla-juego-cinta {
+  margin-top: 2px;
+  min-width: 13rem;
+}
+
+.pantalla-juego-cinta .cinta-texto {
+  font-size: 0.85rem;
+}
+
+.pantalla-juego-boton {
+  margin-top: 30px;
+}
+
+.juego-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+.juego-que-es,
+.juego-como {
+  padding-top: 42px;
+}
+
+.juego-que-es p + p {
+  margin-top: 12px;
+}
+
+.juego-que-es p,
+.juego-como {
+  font-size: 1.03rem;
+}
+
+.juego-categorias {
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+  margin-top: 26px;
+  padding: 20px 10px 14px;
+  border-radius: var(--radio-juego);
+  background: var(--navy-800);
+}
+
+.pasos {
+  display: grid;
+  gap: 16px;
+}
+
+.pasos li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.pasos-numero {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 3px solid var(--oro-oscuro);
+  background: var(--oro);
+  color: var(--oro-tinta);
+  font-family: var(--fuente-juego);
+  font-size: 1.3rem;
+  box-shadow: 0 3px 0 var(--oro-oscuro);
+}
+
+.pasos strong {
+  display: block;
+  font-family: var(--fuente-juego);
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 1.2;
+  color: var(--navy-800);
+}
+
+.pasos li span span {
+  display: block;
+  font-weight: 600;
+  color: var(--tinta-suave);
+}
+
+.panel-juego {
+  padding: 30px;
+  border-radius: var(--radio-juego-lg);
+  background: rgba(10, 26, 58, 0.65);
+  border: 3px solid var(--juego-linea);
+}
+
+.panel-juego > p {
+  margin-top: 10px;
+  color: var(--juego-texto-2);
+  font-weight: 600;
+}
+
+.malvinometro {
+  display: grid;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.malvinometro li {
+  position: relative;
+  height: 40px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 2px solid rgba(216, 240, 253, 0.18);
+  overflow: hidden;
+}
+
+.malvinometro li::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: calc(20% + var(--nivel) * 20%);
+  background: linear-gradient(90deg, var(--celeste-oscuro), var(--celeste));
+  border-radius: 999px;
+}
+
+.malvinometro li:last-child::before {
+  background: linear-gradient(90deg, var(--oro-oscuro), var(--oro-claro));
+}
+
+.malvinometro span {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding-left: 16px;
+  font-family: var(--fuente-juego);
+  font-size: 1.05rem;
+  color: #fff;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.45);
+}
+
+.puntos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin: 20px 0 14px;
+}
+
+.puntos div {
+  text-align: center;
+  padding: 14px 6px;
+  border-radius: var(--radio-juego);
+  background: var(--crema);
+  border: 3px solid var(--crema-borde);
+  box-shadow: 0 4px 0 var(--crema-canto);
+}
+
+.puntos dt {
+  font-weight: 800;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+
+.puntos dd {
+  font-family: var(--fuente-juego);
+  font-size: 1.35rem;
+  color: var(--navy-800);
+}
+
+.puntos-racha {
+  color: var(--oro-claro);
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.panel-juego p:last-child {
+  color: var(--juego-texto-2);
+  font-weight: 600;
+}
+
+.creditos-juego {
+  display: grid;
+  grid-template-columns: 1.4fr auto 1fr;
+  align-items: center;
+  gap: 32px;
+  padding-top: 28px;
+  padding-bottom: 28px;
+  border-top: 2px solid var(--juego-linea);
+  border-bottom: 2px solid var(--juego-linea);
+  color: var(--juego-texto-2);
+}
+
+.creditos-juego-nombres {
+  font-family: var(--fuente-juego);
+  font-size: 1.3rem;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.creditos-juego .logo-unpilar {
+  height: 44px;
+}
+
+.creditos-juego-enlaces {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+
+/* ---------- Juego: tablet y celular ---------- */
+
+@media (max-width: 1080px) {
+  .juego-portada-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pantalla-juego-marco {
+    width: min(100%, 340px);
+  }
+
+  .creditos-juego {
+    grid-template-columns: 1fr;
+    text-align: center;
+    justify-items: center;
+  }
+
+  .creditos-juego-enlaces {
+    align-items: center;
+  }
+}
+
+@media (max-width: 860px) {
+  .juego-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .puntos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .acceso-medallones {
+    gap: 10px;
+  }
+
+  .medallon-circulo {
+    width: 50px;
+    height: 50px;
+  }
+
+  .medallon-circulo svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  .btn3d--xl {
+    font-size: 1.6rem;
+    min-height: 4rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .cinta {
+    min-width: 0;
+  }
+
+  .cinta-texto {
+    padding: 0 2.6rem 0.25rem;
+    font-size: 0.78rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tema-juego *,
+  .tema-juego *::before,
+  .tema-juego *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

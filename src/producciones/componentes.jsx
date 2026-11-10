@@ -1,9 +1,9 @@
 /**
- * Museo Virtual — componentes reutilizables.
+ * Producciones de estudiantes — componentes reutilizables (tarjetas y visores de material).
  */
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {
   X,
   ZoomIn,
@@ -11,21 +11,24 @@ import {
   ChevronLeft,
   ChevronRight,
   Maximize2,
-  Search,
-  Play,
 } from 'lucide-react';
-import { assetUrl, tipoDe, config } from './datos';
-import '../styles/museo.css';
+import { assetUrl, tipoDe, firmaDe } from './datos';
+import { GAME_URL } from '../config/site';
+import { PortadaTrivia } from '../components/marca/Marca';
+
+/** La trivia (juego principal) usa la portada dibujada con la identidad del juego. */
+export const esTrivia = (pieza) => pieza?.juego === GAME_URL;
+import '../styles/producciones.css';
 
 /* ---------- SEO básico ---------- */
 
 const TITULO_SITIO = 'MalvinizAR';
 
-/** Actualiza <title> y la meta description de cada página del museo. */
+/** Actualiza <title> y la meta description de cada página. */
 export function useMetaPagina(titulo, descripcion) {
   useEffect(() => {
     const anterior = document.title;
-    document.title = titulo ? `${titulo} · ${config.nombre} | ${TITULO_SITIO}` : `${config.nombre} | ${TITULO_SITIO}`;
+    document.title = titulo ? `${titulo} | ${TITULO_SITIO}` : `${TITULO_SITIO} | Producciones sobre Malvinas de estudiantes de la UNPILAR`;
     const meta = document.querySelector('meta[name="description"]');
     const descAnterior = meta?.getAttribute('content');
     if (meta && descripcion) meta.setAttribute('content', descripcion.slice(0, 160));
@@ -41,51 +44,6 @@ export function useScrollArriba(clave) {
   useEffect(() => {
     window.scrollTo({ top: 0 });
   }, [clave]);
-}
-
-/* ---------- Navegación del museo ---------- */
-
-/** Barra del museo: secciones + buscador. En celular el buscador es un ícono. */
-export function MuseoNav() {
-  const navigate = useNavigate();
-  const [q, setQ] = useState('');
-  const buscar = (e) => {
-    e.preventDefault();
-    navigate(q.trim() ? `/museo-virtual/archivo?q=${encodeURIComponent(q.trim())}` : '/museo-virtual/archivo');
-  };
-  const clase = ({ isActive }) => (isActive ? 'activo' : undefined);
-  return (
-    <nav className="mv-nav" aria-label="Secciones del Museo Virtual">
-      <div className="mv-contenedor mv-nav-inner">
-        <ul>
-          <li><NavLink to="/museo-virtual" end className={clase}>Inicio</NavLink></li>
-          <li><NavLink to="/museo-virtual/archivo" className={clase}>Catálogo</NavLink></li>
-        </ul>
-        <form className="mv-nav-buscar" role="search" onSubmit={buscar}>
-          <Search size={17} aria-hidden="true" />
-          <label className="mv-solo-lectores" htmlFor="mv-buscar">Buscar en el museo</label>
-          <input id="mv-buscar" type="search" placeholder="Buscar" value={q} onChange={(e) => setQ(e.target.value)} />
-        </form>
-        <Link to="/museo-virtual/archivo?buscar=1" className="mv-nav-lupa" aria-label="Buscar en el museo">
-          <Search size={20} aria-hidden="true" />
-        </Link>
-      </div>
-    </nav>
-  );
-}
-
-export function Migas({ items }) {
-  return (
-    <nav className="mv-migas" aria-label="Ubicación">
-      <ol>
-        {items.map((it, i) => (
-          <li key={i}>
-            {it.to ? <Link to={it.to}>{it.label}</Link> : <span aria-current="page">{it.label}</span>}
-          </li>
-        ))}
-      </ol>
-    </nav>
-  );
 }
 
 /* ---------- Etiquetas ---------- */
@@ -134,185 +92,52 @@ export function SinImagen({ pieza }) {
   );
 }
 
-/* ---------- Póster (tarjeta) ---------- */
+/* ---------- Tarjeta de producción ---------- */
 
 /**
- * Póster de una pieza: la producción ocupa toda la tarjeta, con el mismo
- * material desenfocado de fondo para que entre completa sin recortes.
+ * Tarjeta de una producción: imagen completa (sin recortes, con el mismo material
+ * desenfocado de fondo) y una base crema con título, autoría, materia y año.
  */
-export function TarjetaPieza({ pieza }) {
-  const Icon = tipoDe(pieza).icon;
+export function TarjetaPieza({ pieza, compacta = false }) {
+  const t = tipoDe(pieza);
+  const Icon = t.icon;
+  const firma = firmaDe(pieza);
+  const contexto = [pieza.materia, pieza.anio].filter(Boolean).join(' · ');
   return (
-    <article className="mv-poster">
-      <Link to={`/museo-virtual/pieza/${pieza.slug}`} className="mv-poster-enlace" aria-label={`${pieza.titulo} — ${tipoDe(pieza).label}`}>
-        <div className="mv-poster-media">
-          {pieza.imagen ? (
+    <article className={`tarjeta-prod ${compacta ? 'tarjeta-prod--compacta' : ''}`}>
+      <Link to={`/producciones/${pieza.slug}`} className="tarjeta-prod-enlace">
+        <div className="tarjeta-prod-media">
+          {esTrivia(pieza) ? (
+            <PortadaTrivia />
+          ) : pieza.imagen ? (
             <>
-              <img className="mv-poster-fondo" src={assetUrl(pieza.imagen)} alt="" loading="lazy" decoding="async" aria-hidden="true" />
-              <Img src={pieza.imagen} alt="" className="mv-poster-img" />
+              <img className="tarjeta-prod-fondo" src={assetUrl(pieza.imagen)} alt="" loading="lazy" decoding="async" aria-hidden="true" />
+              <Img src={pieza.imagen} alt="" className="tarjeta-prod-img" />
             </>
           ) : (
             <SinImagen pieza={pieza} />
           )}
-          <span className="mv-poster-tipo" title={tipoDe(pieza).label}>
-            <Icon size={15} aria-hidden="true" />
+          <span className="tarjeta-prod-formato">
+            <Icon size={14} aria-hidden="true" /> {t.label}
           </span>
-          {pieza.demo && <span className="mv-poster-demo">Demo</span>}
         </div>
-        <h3 className="mv-poster-titulo">{pieza.titulo}</h3>
+        <div className="tarjeta-prod-cuerpo">
+          <h3 className="tarjeta-prod-titulo">{pieza.titulo}</h3>
+          {!compacta && firma && <p className="tarjeta-prod-firma">{firma}</p>}
+          {!compacta && contexto && <p className="tarjeta-prod-contexto">{contexto}</p>}
+        </div>
       </Link>
     </article>
   );
 }
 
-export function GrillaPiezas({ piezas }) {
+export function GrillaPiezas({ piezas, compacta = false }) {
   return (
-    <div className="mv-grilla">
+    <div className={`grilla-prod ${compacta ? 'grilla-prod--compacta' : ''}`}>
       {piezas.map((p) => (
-        <TarjetaPieza key={p.slug} pieza={p} />
+        <TarjetaPieza key={p.slug} pieza={p} compacta={compacta} />
       ))}
     </div>
-  );
-}
-
-export function EnlaceFlecha({ to, children }) {
-  return (
-    <Link to={to} className="mv-enlace-flecha">
-      {children} <ChevronRight size={16} aria-hidden="true" />
-    </Link>
-  );
-}
-
-/* ---------- Fila tipo Netflix ---------- */
-
-export function Carrusel({ titulo, verTodo, piezas }) {
-  const pista = useRef(null);
-  const [bordes, setBordes] = useState({ inicio: true, fin: false });
-
-  const medir = useCallback(() => {
-    const el = pista.current;
-    if (!el) return;
-    setBordes({
-      inicio: el.scrollLeft <= 4,
-      fin: el.scrollLeft + el.clientWidth >= el.scrollWidth - 4,
-    });
-  }, []);
-
-  useEffect(() => {
-    medir();
-    window.addEventListener('resize', medir);
-    return () => window.removeEventListener('resize', medir);
-  }, [medir, piezas]);
-
-  const mover = (dir) => {
-    const el = pista.current;
-    if (el) el.scrollBy({ left: dir * el.clientWidth * 0.85, behavior: 'smooth' });
-  };
-
-  if (!piezas.length) return null;
-
-  return (
-    <section className="mv-fila" aria-label={titulo}>
-      <div className="mv-contenedor mv-fila-cabecera">
-        <h2 className="mv-fila-titulo">
-          {verTodo ? <Link to={verTodo}>{titulo} <ChevronRight size={20} aria-hidden="true" /></Link> : titulo}
-        </h2>
-      </div>
-      <div className="mv-fila-cuerpo">
-        <button type="button" className="mv-fila-flecha mv-fila-flecha--izq" onClick={() => mover(-1)} hidden={bordes.inicio} aria-label={`Anterior en ${titulo}`}>
-          <ChevronLeft size={30} />
-        </button>
-        <div className="mv-fila-pista" ref={pista} onScroll={medir}>
-          {piezas.map((p) => (
-            <div className="mv-fila-item" key={p.slug}>
-              <TarjetaPieza pieza={p} />
-            </div>
-          ))}
-        </div>
-        <button type="button" className="mv-fila-flecha mv-fila-flecha--der" onClick={() => mover(1)} hidden={bordes.fin} aria-label={`Siguiente en ${titulo}`}>
-          <ChevronRight size={30} />
-        </button>
-      </div>
-    </section>
-  );
-}
-
-/* ---------- Portada grande con destacados ---------- */
-
-export function SliderDestacados({ piezas, intervalo = 7000 }) {
-  const [actual, setActual] = useState(0);
-  const [pausa, setPausa] = useState(false);
-  const toque = useRef(null);
-  const total = piezas.length;
-
-  useEffect(() => {
-    const reducir = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
-    if (pausa || total < 2 || reducir) return undefined;
-    const t = setTimeout(() => setActual((i) => (i + 1) % total), intervalo);
-    return () => clearTimeout(t);
-  }, [actual, pausa, total, intervalo]);
-
-  if (!total) return null;
-  const ir = (i) => setActual((i + total) % total);
-
-  return (
-    <section
-      className="mv-hero"
-      aria-roledescription="carrusel"
-      aria-label="Destacados"
-      onMouseEnter={() => setPausa(true)}
-      onMouseLeave={() => setPausa(false)}
-      onTouchStart={(e) => (toque.current = e.touches[0].clientX)}
-      onTouchEnd={(e) => {
-        if (toque.current === null) return;
-        const dx = e.changedTouches[0].clientX - toque.current;
-        if (Math.abs(dx) > 40) ir(actual + (dx < 0 ? 1 : -1));
-        toque.current = null;
-      }}
-    >
-      {piezas.map((p, i) => {
-        const Icon = tipoDe(p).icon;
-        return (
-          <div
-            key={p.slug}
-            className={`mv-hero-slide ${i === actual ? 'activo' : ''}`}
-            role="group"
-            aria-roledescription="diapositiva"
-            aria-label={`${i + 1} de ${total}`}
-            aria-hidden={i !== actual}
-          >
-            {p.imagen && <img className="mv-hero-fondo" src={assetUrl(p.imagen)} alt="" aria-hidden="true" loading={i === 0 ? 'eager' : 'lazy'} />}
-            <div className="mv-hero-pieza">
-              {p.imagen ? <img src={assetUrl(p.imagen)} alt={p.imagenAlt} loading={i === 0 ? 'eager' : 'lazy'} /> : <SinImagen pieza={p} />}
-            </div>
-            <div className="mv-contenedor mv-hero-texto">
-              <p className="mv-hero-tipo">
-                <Icon size={15} aria-hidden="true" /> {tipoDe(p).label}
-              </p>
-              <h2 className="mv-hero-titulo">{p.titulo}</h2>
-              <Link to={`/museo-virtual/pieza/${p.slug}`} className="mv-boton mv-boton--claro" tabIndex={i === actual ? 0 : -1}>
-                <Play size={18} aria-hidden="true" fill="currentColor" /> Ver
-              </Link>
-            </div>
-          </div>
-        );
-      })}
-
-      {total > 1 && (
-        <div className="mv-hero-puntos">
-          {piezas.map((p, i) => (
-            <button
-              key={p.slug}
-              type="button"
-              className={i === actual ? 'activo' : ''}
-              onClick={() => ir(i)}
-              aria-label={`Ver destacado ${i + 1}: ${p.titulo}`}
-              aria-current={i === actual}
-            />
-          ))}
-        </div>
-      )}
-    </section>
   );
 }
 

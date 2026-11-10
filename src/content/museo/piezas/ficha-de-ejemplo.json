@@ -2,7 +2,7 @@
   "subtitulo": "",
   "orden": 1,
   "destacada": false,
-  "publicado": true,
+  "publicado": false,
   "demo": true,
   "resumen": "Pieza demostrativa: muestra cómo se ve una ficha cuando todos los campos están completos.",
   "descripcion": "[Ejemplo] Este texto ocupa el lugar de la descripción y el contexto de una pieza. Nada de lo que aparece en esta ficha es información real: sirve sólo como modelo para cargar contenidos.\n\nSe pueden escribir varios párrafos separándolos con una línea en blanco.",
@@ -28,6 +28,9 @@
       "rol": "Autor/a"
     }
   ],
+  "materia": "",
+  "docente": "",
+  "anio": "2026",
   "fecha": "[Ejemplo] Abril de 2026",
   "procedencia": "[Ejemplo] Institución o archivo de procedencia",
   "creditos": [
