@@ -103,6 +103,7 @@ function normalizarPieza(slug, d) {
     descripcion: texto(d.descripcion),
     imagen: texto(d.imagen),
     imagenAlt: texto(d.imagenAlt),
+    imagenCubrir: Boolean(d.imagenCubrir),
     galeria: lista(d.galeria)
       .map((g) => (typeof g === 'string' ? { imagen: g, pie: '' } : { imagen: texto(g.imagen), pie: texto(g.pie) }))
       .filter((g) => g.imagen),

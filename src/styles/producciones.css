@@ -503,3 +503,12 @@
   bottom: 9%;
   translate: -50% 0;
 }
+
+/* Portadas muy apaisadas: el marco toma la proporción de la imagen en vez de dejar una franja. */
+.mv-juego.mv-juego--apaisado {
+  aspect-ratio: 1260 / 420;
+}
+
+.mv-juego--portada .mv-img.mv-img--cubrir {
+  object-fit: cover;
+}

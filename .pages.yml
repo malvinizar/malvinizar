@@ -96,6 +96,7 @@ content:
       - { name: descripcion, label: Descripción y contexto, type: text, description: "Separá párrafos con una línea en blanco." }
       - { name: imagen, label: "Imagen principal / portada", type: image }
       - { name: imagenAlt, label: Texto alternativo de la imagen, type: string }
+      - { name: imagenCubrir, label: "Recortar la imagen para llenar el marco (para portadas muy apaisadas)", type: boolean }
       - name: galeria
         label: Galería de imágenes
         type: object

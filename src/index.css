@@ -956,6 +956,10 @@ ol {
   transition: scale 0.5s var(--ease);
 }
 
+.tarjeta-prod-media .tarjeta-prod-img--cubrir {
+  object-fit: cover;
+}
+
 .tarjeta-prod-enlace:hover .tarjeta-prod-img {
   scale: 1.04;
 }

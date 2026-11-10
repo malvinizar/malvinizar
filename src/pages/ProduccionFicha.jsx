@@ -51,8 +51,12 @@ function Juego({ pieza }) {
     );
   }
   return (
-    <button type="button" className="mv-juego mv-juego--portada" onClick={() => setJugando(true)}>
-      {pieza.imagen && <Img src={pieza.imagen} alt={pieza.imagenAlt} prioridad />}
+    <button
+      type="button"
+      className={`mv-juego mv-juego--portada ${pieza.imagenCubrir ? 'mv-juego--apaisado' : ''}`}
+      onClick={() => setJugando(true)}
+    >
+      {pieza.imagen && <Img src={pieza.imagen} alt={pieza.imagenAlt} prioridad className={pieza.imagenCubrir ? 'mv-img--cubrir' : ''} />}
       <span className="mv-juego-jugar btn3d btn3d--lg">
         <Play size={22} fill="currentColor" aria-hidden="true" /> Jugar
       </span>

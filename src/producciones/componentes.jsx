@@ -112,7 +112,7 @@ export function TarjetaPieza({ pieza, compacta = false }) {
           ) : pieza.imagen ? (
             <>
               <img className="tarjeta-prod-fondo" src={assetUrl(pieza.imagen)} alt="" loading="lazy" decoding="async" aria-hidden="true" />
-              <Img src={pieza.imagen} alt="" className="tarjeta-prod-img" />
+              <Img src={pieza.imagen} alt="" className={`tarjeta-prod-img ${pieza.imagenCubrir ? 'tarjeta-prod-img--cubrir' : ''}`} />
             </>
           ) : (
             <SinImagen pieza={pieza} />
