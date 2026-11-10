@@ -8,7 +8,11 @@ import { LogoUnpilar } from '../components/marca/Marca';
 
 export default function Nosotros() {
   useMetaPagina('Nosotros', inicio.texto);
-  const foto = inicio.fotos[0];
+  const foto = {
+    imagen: '/inicio/estudiante-ranking-trivia.jpg',
+    alt: 'Un estudiante mira en la computadora el ranking de MalvinizAR · La trivia de Malvinas.',
+    pie: 'Un estudiante revisa el ranking de la trivia MalvinizAR.',
+  };
 
   return (
     <>
