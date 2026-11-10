@@ -14,11 +14,6 @@ function RedirigirPieza() {
   return <Navigate to={`/producciones/${slug}`} replace />;
 }
 
-function RedirigirSala() {
-  const { slug } = useParams();
-  return <Navigate to={`/producciones?eje=${slug}`} replace />;
-}
-
 export default function App() {
   return (
     <HashRouter>
@@ -33,13 +28,13 @@ export default function App() {
 
           {/* Direcciones anteriores */}
           <Route path="museo-virtual/pieza/:slug" element={<RedirigirPieza />} />
-          <Route path="museo-virtual/salas/:slug" element={<RedirigirSala />} />
+          <Route path="museo-virtual/salas/:slug" element={<Navigate to="/producciones" replace />} />
           <Route path="museo-virtual/*" element={<Navigate to="/producciones" replace />} />
           <Route path="museo-virtual" element={<Navigate to="/producciones" replace />} />
           <Route path="recursos" element={<Navigate to="/producciones" replace />} />
-          <Route path="archivo-audiovisual" element={<Navigate to="/producciones?formato=videos" replace />} />
-          <Route path="diario" element={<Navigate to="/producciones?formato=documentos" replace />} />
-          <Route path="testimonios" element={<Navigate to="/producciones?formato=audio" replace />} />
+          <Route path="archivo-audiovisual" element={<Navigate to="/producciones" replace />} />
+          <Route path="diario" element={<Navigate to="/producciones" replace />} />
+          <Route path="testimonios" element={<Navigate to="/producciones" replace />} />
           <Route path="universidad" element={<Navigate to="/nosotros" replace />} />
           <Route path="contacto" element={<Navigate to="/nosotros" replace />} />
 

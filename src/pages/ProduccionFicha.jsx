@@ -171,7 +171,7 @@ export default function ProduccionFicha() {
         <div className="ficha-principal">
           <p className="ficha-meta">
             <EtiquetaTipo pieza={pieza} />
-            {sala && <Link to={`/producciones?eje=${sala.slug}`}>{sala.titulo}</Link>}
+            {sala && <span className="ficha-tema">{sala.titulo}</span>}
           </p>
           <h1 className="ficha-titulo">{pieza.titulo}</h1>
           {pieza.subtitulo && <p className="ficha-subtitulo">{pieza.subtitulo}</p>}
