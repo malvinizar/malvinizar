@@ -11,7 +11,6 @@ export default function Nosotros() {
   const foto = {
     imagen: '/inicio/estudiante-ranking-trivia.jpg',
     alt: 'Un estudiante mira en la computadora el ranking de MalvinizAR · La trivia de Malvinas.',
-    pie: 'Un estudiante revisa el ranking de la trivia MalvinizAR.',
   };
 
   return (
@@ -27,7 +26,6 @@ export default function Nosotros() {
         <div className="contenedor nosotros-grid">
           <figure className="nosotros-foto">
             <img src={assetUrl(foto.imagen)} alt={foto.alt} />
-            <figcaption>{foto.pie}</figcaption>
           </figure>
 
           <article className="nosotros-texto">
