@@ -1,11 +1,11 @@
 {
-  "subtitulo": "Seminario Malvinas Argentinas",
+  "subtitulo": "Seminario Malvinas, una causa nacional",
   "orden": 4,
   "destacada": false,
   "publicado": true,
   "demo": false,
   "resumen": "Presentación de seminario sobre lo que representa la causa Malvinas, la soberanía y su dimensión latinoamericana.",
-  "descripcion": "Presentación realizada para el Seminario Malvinas Argentinas. Recorre cinco ejes: qué representa la causa Malvinas, la soberanía argentina y los yaganes, la causa latinoamericana, Corrientes («coraje, chamamé y sapukai») y una conclusión proyectada al año 2035.\n\nIncluye un código QR para que el público participe de la presentación.",
+  "descripcion": "Presentación realizada para el Seminario Malvinas, una causa nacional. Recorre cinco ejes: qué representa la causa Malvinas, la soberanía argentina y los yaganes, la causa latinoamericana, Corrientes («coraje, chamamé y sapukai») y una conclusión proyectada al año 2035.\n\nIncluye un código QR para que el público participe de la presentación.",
   "imagen": "/museo/media/paginas/malvinas-argentinas-causa-nacional/p-01.jpg",
   "imagenAlt": "Portada de la presentación «Malvinas Argentinas: una causa nacional».",
   "galeria": [],
@@ -28,12 +28,12 @@
   "descargable": true,
   "autores": [
     {
-      "nombre": "Ximena Matilde Bolaño",
-      "rol": "Alumna"
+      "nombre": "Ximena Bolaños",
+      "rol": "Autora"
     }
   ],
-  "materia": "Seminario Malvinas Argentinas",
-  "docente": "Mariano Fernández Ameghino",
+  "materia": "Seminario Malvinas, una causa nacional",
+  "docente": "Mariano Fernandez Ameghino",
   "anio": "2026",
   "fecha": "",
   "procedencia": "",
