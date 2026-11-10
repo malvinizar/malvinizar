@@ -2,14 +2,13 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import inicio from '../content/inicio.json';
 import { FORM_URL } from '../config/site';
-import { assetUrl, piezas } from '../producciones/datos';
+import { assetUrl } from '../producciones/datos';
 import { useMetaPagina } from '../producciones/componentes';
 import { LogoUnpilar } from '../components/marca/Marca';
 
 export default function Nosotros() {
   useMetaPagina('Nosotros', inicio.texto);
   const foto = inicio.fotos[0];
-  const autores = new Set(piezas.flatMap((p) => p.autores.map((a) => a.nombre)));
 
   return (
     <>
@@ -39,21 +38,6 @@ export default function Nosotros() {
               Las <Link to="/producciones">producciones</Link> se pueden recorrer por formato o por tema, y la{' '}
               <Link to="/historia">cronología</Link> conecta cada hito con los trabajos que lo abordan.
             </p>
-
-            <dl className="nosotros-cifras">
-              <div>
-                <dt>Producciones</dt>
-                <dd>{piezas.length}</dd>
-              </div>
-              <div>
-                <dt>Estudiantes</dt>
-                <dd>{autores.size}+</dd>
-              </div>
-              <div>
-                <dt>Carrera</dt>
-                <dd className="nosotros-cifras-texto">Comunicación Digital</dd>
-              </div>
-            </dl>
 
             <div className="nosotros-unpilar">
               <LogoUnpilar />

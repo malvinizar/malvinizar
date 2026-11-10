@@ -127,8 +127,7 @@ export default function Home() {
             <div className="acceso-texto">
               <h2>Producciones</h2>
               <p>
-                {piezas.length} trabajos sobre Malvinas hechos en la UNPILAR: podcasts, videos, infografías,
-                presentaciones y más.
+                Trabajos sobre Malvinas hechos en la UNPILAR: podcasts, videos, infografías, presentaciones y más.
               </p>
               <span className="btn">Ver producciones <ArrowRight size={18} aria-hidden="true" /></span>
             </div>
