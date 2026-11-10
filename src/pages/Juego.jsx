@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Play, Trophy, ExternalLink, ArrowRight } from 'lucide-react';
 import { GAME_URL, RANKING_URL } from '../config/site';
@@ -30,29 +29,6 @@ const PUNTOS = [
   { dificultad: 'Experto', puntos: 500 },
 ];
 
-/** Pantalla del juego dentro de la página: se carga recién al tocar «Jugar acá». */
-function PantallaJuego() {
-  const [jugando, setJugando] = useState(false);
-  return (
-    <div className="pantalla-juego">
-      <div className="pantalla-juego-marco">
-        {jugando ? (
-          <iframe src={GAME_URL} title="MalvinizAR · La trivia de Malvinas" allow="fullscreen; autoplay" allowFullScreen />
-        ) : (
-          <button type="button" className="pantalla-juego-portada" onClick={() => setJugando(true)}>
-            <SolDeMayo className="pantalla-juego-sol" />
-            <Logotipo tamano="md" />
-            <Cinta as="span" className="pantalla-juego-cinta">La trivia de Malvinas</Cinta>
-            <span className="btn3d btn3d--verde pantalla-juego-boton">
-              <Play size={18} fill="currentColor" aria-hidden="true" /> Jugar acá
-            </span>
-          </button>
-        )}
-      </div>
-    </div>
-  );
-}
-
 export default function Juego() {
   useMetaPagina('El juego', 'MalvinizAR · La trivia de Malvinas: girá la ruleta, respondé y llená el Malvinómetro.');
   const pieza = getPieza('trivia-malvinizar');
@@ -62,7 +38,7 @@ export default function Juego() {
     <div className="tema-juego">
       <FondoSol />
       <section className="juego-portada">
-        <div className="contenedor juego-portada-grid">
+        <div className="contenedor juego-portada-unica">
           <div className="juego-portada-texto">
             <div className="juego-logo">
               <SolDeMayo className="juego-logo-sol" />
@@ -85,7 +61,6 @@ export default function Juego() {
               Se abre en una pestaña nueva. Funciona en el celular y en la computadora.
             </p>
           </div>
-          <PantallaJuego />
         </div>
       </section>
 

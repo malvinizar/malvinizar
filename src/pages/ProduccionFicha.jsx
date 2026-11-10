@@ -32,6 +32,17 @@ import NoEncontrado from './NoEncontrado';
 /** Juego o experiencia interactiva: se carga dentro de la ficha recién al tocar «Jugar». */
 function Juego({ pieza }) {
   const [jugando, setJugando] = useState(false);
+  // La trivia se juega en su propio sitio: el botón la abre en una pestaña nueva.
+  if (esTrivia(pieza)) {
+    return (
+      <a href={pieza.juego} target="_blank" rel="noopener noreferrer" className="mv-juego mv-juego--portada mv-juego--trivia">
+        <PortadaTrivia />
+        <span className="mv-juego-jugar btn3d btn3d--lg">
+          <Play size={22} fill="currentColor" aria-hidden="true" /> Jugar
+        </span>
+      </a>
+    );
+  }
   if (jugando) {
     return (
       <div className="mv-juego">
@@ -41,7 +52,7 @@ function Juego({ pieza }) {
   }
   return (
     <button type="button" className="mv-juego mv-juego--portada" onClick={() => setJugando(true)}>
-      {esTrivia(pieza) ? <PortadaTrivia /> : pieza.imagen && <Img src={pieza.imagen} alt={pieza.imagenAlt} prioridad />}
+      {pieza.imagen && <Img src={pieza.imagen} alt={pieza.imagenAlt} prioridad />}
       <span className="mv-juego-jugar btn3d btn3d--lg">
         <Play size={22} fill="currentColor" aria-hidden="true" /> Jugar
       </span>

@@ -491,3 +491,15 @@
     max-height: 80vh;
   }
 }
+
+/* Portada de la trivia: el botón va debajo del logo para no tapar el Sol de Mayo. */
+.mv-juego--trivia .portada-trivia {
+  padding-top: 0;
+  padding-bottom: 12%;
+}
+
+.mv-juego--trivia .mv-juego-jugar.btn3d {
+  top: auto;
+  bottom: 9%;
+  translate: -50% 0;
+}
