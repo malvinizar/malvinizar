@@ -100,7 +100,7 @@ export default function Juego() {
             </p>
             <p>
               Lo desarrollaron estudiantes de la carrera de Comunicación Digital de la Universidad Nacional de Pilar como
-              parte de su cursada.
+              parte de sus prácticas profesionalizantes.
             </p>
             <ul className="juego-categorias" aria-label="Categorías">
               {CATEGORIAS_JUEGO.map((c) => (
