@@ -1,0 +1,41 @@
+{
+  "subtitulo": "Recorrido inmersivo por el Cenotafio de Pilar",
+  "orden": 5,
+  "destacada": false,
+  "publicado": true,
+  "demo": false,
+  "resumen": "Video en 360° que recorre el Cenotafio de Pilar, un homenaje que mantiene viva la memoria de Malvinas.",
+  "descripcion": "Recorrido en video 360° por el Cenotafio de Pilar: la capilla, el mástil y el avión que forman parte del homenaje a los caídos en Malvinas.\n\nUn homenaje que también mantiene viva la memoria.",
+  "imagen": "/museo/media/imagenes/video-360-cenotafio-de-pilar.jpg",
+  "imagenAlt": "Vista del Cenotafio de Pilar: una capilla blanca de techo rojo, un mástil con la bandera argentina y un avión de combate sobre el césped.",
+  "galeria": [],
+  "archivo": "/museo/media/video/video-360-cenotafio-de-pilar.mp4",
+  "paginas": [],
+  "videoExterno": "",
+  "descargable": false,
+  "autores": [],
+  "materia": "",
+  "docente": "",
+  "anio": "2026",
+  "fecha": "",
+  "procedencia": "Universidad Nacional de Pilar",
+  "creditos": [],
+  "creditoImagen": "",
+  "fuentes": [],
+  "derechos": "",
+  "licencia": "",
+  "enlaces": [],
+  "etiquetas": [
+    "Cenotafio",
+    "Pilar",
+    "video 360",
+    "homenaje"
+  ],
+  "relacionadas": [
+    "cartel-puerto-argentino-unpilar"
+  ],
+  "notasInternas": "Completar: autores/as, materia, docente. Es un video 360° (equirectangular): en el reproductor común se ve plano; para verlo inmersivo conviene subirlo también a YouTube como 360 y cargar el link en videoExterno.",
+  "titulo": "Video 360° en el Cenotafio de Pilar",
+  "tipo": "video",
+  "sala": "memoria-en-comunidad"
+}
